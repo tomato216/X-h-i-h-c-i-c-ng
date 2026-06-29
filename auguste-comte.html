@@ -10,26 +10,72 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0c; color: #ffffff; line-height: 1.6; padding: 20px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
         .container { max-width: 800px; margin: 0 auto; }
 
-        #setup-screen { background-color: #121216; border: 2px solid #6f42c1; border-radius: 16px; padding: 40px; text-align: center; margin-top: 10vh; }
-        .setting-group { display: flex; align-items: center; justify-content: space-between; background: #1a1a24; padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #3a2366; }
-        
-        .btn-start { display: inline-block; width: 100%; background-color: #6f42c1; color: white; font-size: 1.2rem; font-weight: 600; padding: 15px; border: none; border-radius: 8px; cursor: pointer; }
-        
+        /* MÀN HÌNH THIẾT LẬP */
+        #setup-screen {
+            background-color: #121216;
+            border: 2px solid #6f42c1;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 10vh;
+            box-shadow: 0 8px 32px rgba(111, 66, 193, 0.2);
+        }
+        #setup-screen h1 { color: #b388ff; margin-bottom: 10px; }
+        #setup-screen p { color: #b3b3b8; margin-bottom: 30px; }
+        .setting-group {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #1a1a24; padding: 15px 20px;
+            border-radius: 8px; margin-bottom: 15px;
+            border: 1px solid #3a2366; text-align: left;
+        }
+        input[type="number"] {
+            width: 70px; padding: 8px; background: #0a0a0c; color: white;
+            border: 1px solid #6f42c1; border-radius: 6px; text-align: center;
+        }
+        input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
+        .btn-start {
+            display: inline-block; width: 100%; background-color: #6f42c1;
+            color: white; font-size: 1.2rem; font-weight: 600;
+            padding: 15px; border: none; border-radius: 8px; margin-top: 20px; cursor: pointer;
+        }
+
+        /* MÀN HÌNH LÀM BÀI */
         #quiz-screen { display: none; padding-bottom: 50px; }
-        .quiz-header { position: sticky; top: 0; background-color: rgba(10, 10, 12, 0.95); padding: 15px 0; border-bottom: 1px solid #3a2366; display: flex; justify-content: space-between; align-items: center; }
-        
-        .question-card { background-color: #121216; border: 1px solid #3a2366; border-radius: 12px; padding: 25px; margin-top: 25px; }
-        .option-label { display: flex; align-items: center; gap: 15px; background: #1a1a24; padding: 15px; border-radius: 8px; border: 1px solid #2a2a36; cursor: pointer; margin-bottom: 10px; }
+        .quiz-header {
+            position: sticky; top: 0; background-color: rgba(10, 10, 12, 0.95);
+            padding: 15px 0; border-bottom: 1px solid #3a2366;
+            display: flex; justify-content: space-between; align-items: center; z-index: 100;
+        }
+        .question-card {
+            background-color: #121216; border: 1px solid #3a2366;
+            border-radius: 12px; padding: 25px; margin-top: 25px;
+        }
+        .options { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .option-label {
+            display: flex; align-items: center; gap: 15px; background: #1a1a24;
+            padding: 15px; border-radius: 8px; border: 1px solid #2a2a36; cursor: pointer;
+        }
         .option-label.correct { border-color: #00e676; background: rgba(0, 230, 118, 0.15); color: #00e676; }
         .option-label.wrong { border-color: #ff5252; background: rgba(255, 82, 82, 0.15); color: #ff5252; }
         .option-label.disabled { pointer-events: none; }
-        
-        .explanation { margin-top: 20px; padding: 15px; background: rgba(111, 66, 193, 0.1); border-left: 4px solid #b388ff; display: none; }
-        .btn-submit { display: block; width: 100%; max-width: 300px; margin: 40px auto; background-color: #00e676; color: #000; font-weight: 700; padding: 15px; border: none; border-radius: 8px; cursor: pointer; }
-        #result-box { text-align: center; padding: 30px; border: 2px solid #00e676; border-radius: 12px; display: none; }
+        .explanation {
+            margin-top: 20px; padding: 15px; background: rgba(111, 66, 193, 0.1);
+            border-left: 4px solid #b388ff; display: none;
+        }
+        .btn-submit {
+            display: block; width: 100%; max-width: 300px; margin: 40px auto 0;
+            background-color: #00e676; color: #000; font-weight: 700;
+            padding: 15px; border: none; border-radius: 8px; cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -39,120 +85,97 @@
         <h1>Bộ đề 1: Auguste Comte</h1>
         <div class="setting-group">
             <span>Tính thời gian</span>
-            <input type="checkbox" id="enable-timer">
+            <div><input type="checkbox" id="enable-timer"> <input type="number" id="time-limit" value="30" disabled></div>
         </div>
         <div class="setting-group">
-            <span>Hiện đáp án ngay</span>
-            <input type="checkbox" id="instant-feedback" checked>
+            <span>Hiện đáp án ngay</span> <input type="checkbox" id="instant-feedback" checked>
         </div>
         <button class="btn-start" onclick="startQuiz()">VÀO LÀM BÀI</button>
     </div>
 
     <div id="quiz-screen">
-        <div class="quiz-header">
-            <h2 style="color: #b388ff;">Auguste Comte (50 Câu)</h2>
-            <div id="timer-display"></div>
-        </div>
+        <div class="quiz-header"><h2>Auguste Comte</h2><div id="timer-display"></div></div>
         <div id="questions-container"></div>
         <button id="submit-btn" class="btn-submit" onclick="submitQuiz()">NỘP BÀI</button>
-        <div id="result-box">
-            <h2 id="score-text">Bạn đã hoàn thành!</h2>
-            <p id="score-details"></p>
-        </div>
     </div>
 </div>
 
 <script>
     const questionsData = [
         { q: "Câu 1. Auguste Comte sống trong giai đoạn nào?", opts: { A: "1760 – 1825", B: "1798 – 1857", C: "1818 – 1883", D: "1858 – 1917" }, ans: "B", exp: "Auguste Comte sinh năm 1798 và mất năm 1857." },
-        // ... (Giữ nguyên danh sách 50 câu như cũ)
+        // ... (Giữ nguyên dữ liệu 50 câu của bạn tại đây)
+        { q: "Câu 50. Lý thuyết cấu trúc - chức năng sau này được gợi mở trực tiếp từ hướng nghiên cứu nào của Comte?", opts: { A: "Động học xã hội", B: "Tĩnh học xã hội", C: "Thực nghiệm xã hội", D: "Phân tích lịch sử" }, ans: "B", exp: "Ý tưởng được gợi mở từ hướng nghiên cứu tĩnh học xã hội của Auguste Comte." }
     ];
 
-    let isInstantFeedback = true;
     let totalScore = 0;
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
+    
     function playSound(isCorrect) {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.connect(gain); gain.connect(audioCtx.destination);
-        osc.frequency.setValueAtTime(isCorrect ? 659 : 150, audioCtx.currentTime);
+        osc.frequency.setValueAtTime(isCorrect ? 660 : 150, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
         osc.start(); osc.stop(audioCtx.currentTime + 0.3);
     }
 
     function startQuiz() {
-        isInstantFeedback = document.getElementById('instant-feedback').checked;
         document.getElementById('setup-screen').style.display = 'none';
         document.getElementById('quiz-screen').style.display = 'block';
-        renderQuestions();
-    }
-
-    function renderQuestions() {
         const container = document.getElementById('questions-container');
         questionsData.forEach((q, index) => {
-            const div = document.createElement('div');
-            div.className = 'question-card';
-            div.id = 'q-' + index;
-            div.innerHTML = `
-                <div style="margin-bottom:15px"><b>${q.q}</b></div>
-                ${Object.keys(q.opts).map(key => `
-                    <div class="option-label" onclick="checkAnswer(${index}, '${key}', this)">
-                        ${key}. ${q.opts[key]}
+            container.innerHTML += `
+                <div class="question-card" id="q-${index}">
+                    <div class="question-title">${q.q}</div>
+                    <div class="options">
+                        ${Object.keys(q.opts).map(key => `
+                            <label class="option-label" onclick="handleOptionClick(${index}, '${key}', this)">
+                                <span><b>${key}.</b> ${q.opts[key]}</span>
+                            </label>
+                        `).join('')}
                     </div>
-                `).join('')}
-                <div class="explanation" id="exp-${index}"><b>Giải thích:</b> ${q.exp}</div>
-            `;
-            container.appendChild(div);
+                    <div class="explanation" id="exp-${index}"><b>Giải thích:</b> ${q.exp}</div>
+                </div>`;
         });
-        if(!isInstantFeedback) document.getElementById('submit-btn').style.display = 'block';
-        else document.getElementById('submit-btn').style.display = 'none';
     }
 
-    function checkAnswer(qIndex, selectedKey, element) {
-        if(document.getElementById('q-' + qIndex).classList.contains('answered')) return;
-        
-        document.getElementById('q-' + qIndex).classList.add('answered');
+    function handleOptionClick(qIndex, selectedAns, el) {
+        const card = document.getElementById(`q-${qIndex}`);
+        if(card.classList.contains('answered')) return;
+        card.classList.add('answered');
+
+        const isInstant = document.getElementById('instant-feedback').checked;
         const correct = questionsData[qIndex].ans;
-        const isCorrect = (selectedKey === correct);
-        
-        if(isInstantFeedback) {
-            playSound(isCorrect);
-            if(isCorrect) {
-                element.classList.add('correct');
-                totalScore++;
-            } else {
-                element.classList.add('wrong');
-                // Highlight đúng
-                const options = document.getElementById('q-' + qIndex).querySelectorAll('.option-label');
-                options.forEach(opt => {
-                    if(opt.innerText.startsWith(correct)) opt.classList.add('correct');
+
+        if(isInstant) {
+            el.classList.add(selectedAns === correct ? 'correct' : 'wrong');
+            if(selectedAns !== correct) {
+                Array.from(card.querySelectorAll('.option-label')).forEach(l => {
+                    if(l.innerText.includes(correct)) l.classList.add('correct');
                 });
             }
-            document.getElementById('exp-' + qIndex).style.display = 'block';
+            playSound(selectedAns === correct);
+            document.getElementById(`exp-${qIndex}`).style.display = 'block';
         } else {
-            element.parentElement.querySelectorAll('.option-label').forEach(el => el.style.borderColor = '#2a2a36');
-            element.style.borderColor = '#b388ff';
-            element.dataset.selected = selectedKey;
+            el.style.backgroundColor = '#6f42c1';
+            el.dataset.selected = selectedAns;
         }
     }
 
     function submitQuiz() {
-        questionsData.forEach((q, index) => {
-            const card = document.getElementById('q-' + index);
+        questionsData.forEach((q, i) => {
+            const card = document.getElementById(`q-${i}`);
             const selected = card.querySelector('[data-selected]');
             const correct = q.ans;
-            
-            card.querySelectorAll('.option-label').forEach(opt => {
-                opt.classList.add('disabled');
-                if(opt.innerText.startsWith(correct)) opt.classList.add('correct');
-                if(selected && opt.dataset.selected === selected.dataset.selected && selected.dataset.selected !== correct) opt.classList.add('wrong');
-            });
-            if(selected && selected.dataset.selected === correct) totalScore++;
-            document.getElementById('exp-' + index).style.display = 'block';
+            if(selected) {
+                const isCorrect = selected.dataset.selected === correct;
+                selected.classList.add(isCorrect ? 'correct' : 'wrong');
+                if(!isCorrect) card.querySelectorAll('.option-label').forEach(l => {
+                    if(l.innerText.includes(correct)) l.classList.add('correct');
+                });
+            }
+            document.getElementById(`exp-${i}`).style.display = 'block';
         });
-        document.getElementById('result-box').style.display = 'block';
-        document.getElementById('score-details').innerText = `Bạn đúng ${totalScore} / ${questionsData.length} câu.`;
     }
 </script>
 </body>
