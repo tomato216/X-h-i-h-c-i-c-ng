@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chương 2 - Xã Hội Học Đại Cương</title>
-    <!-- Phông chữ không chân Inter -->
+    <title>Chương 2: Lịch sử và Lý thuyết - Xã Hội Học Đại Cương</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,28 +44,21 @@
             background: linear-gradient(135deg, #ffffff 60%, #b388ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        p.subtitle {
+        .subtitle {
             color: #b3b3b8;
             font-size: 1.1rem;
             font-weight: 300;
         }
 
-        /* Lưới hiển thị các ô lựa chọn */
+        /* Lưới hiển thị linh hoạt tự động xếp hàng */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            /* Tự động căn chỉnh: cột tối thiểu 280px, nếu màn hình rộng sẽ dàn ra */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 20px;
-        }
-
-        /* Để ô thứ 5 nằm giữa nếu ở giao diện 2 cột */
-        .grid-item:last-child:nth-child(odd) {
-            grid-column: 1 / -1;
-            max-width: 50%;
-            margin: 0 auto;
-            width: calc(100% - 10px);
         }
 
         /* Thiết kế từng ô lựa chọn */
@@ -75,21 +67,30 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
             text-decoration: none;
             background-color: #121216;
-            border: 1px solid #3a2366;
+            border: 1px solid #3a2366; /* Viền tím tối */
             border-radius: 12px;
-            padding: 25px 20px;
+            padding: 30px 20px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            text-align: center;
         }
 
-        .grid-item h3 {
+        .grid-item .bo-de {
             color: #b388ff;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s ease;
+        }
+
+        .grid-item .ten-tac-gia {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         /* Hiệu ứng rê chuột vào ô */
@@ -100,13 +101,13 @@
             box-shadow: 0 8px 25px rgba(111, 66, 193, 0.25);
         }
 
-        .grid-item:hover h3 {
+        .grid-item:hover .bo-de {
             color: #ffffff;
         }
 
         /* Nút quay lại */
         .back-nav {
-            margin-top: 40px;
+            margin-top: 50px;
             text-align: center;
         }
 
@@ -128,17 +129,11 @@
 
         /* Tối ưu cho màn hình điện thoại */
         @media (max-width: 600px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .grid-item:last-child:nth-child(odd) {
-                grid-column: auto;
-                max-width: 100%;
-                margin: 0;
-                width: 100%;
-            }
             h1 {
                 font-size: 1.8rem;
+            }
+            .grid-item {
+                padding: 25px 15px;
             }
         }
     </style>
@@ -147,35 +142,38 @@
 
     <div class="container">
         <div class="header">
-            <h1>Chương 2</h1>
-            <p class="subtitle">Sơ lược lịch sử và lý thuyết Xã hội học</p>
+            <h1>Chương 2: Sơ lược lịch sử và lý thuyết</h1>
+            <p class="subtitle">Chọn một nhà xã hội học để bắt đầu làm bài tập</p>
         </div>
         
-        <!-- Khung lưới chứa 5 ô -->
         <div class="grid-container">
             <a href="auguste-comte.html" class="grid-item">
-                <h3>Bộ đề 1. Auguste Comte</h3>
+                <span class="bo-de">Bộ đề 1</span>
+                <span class="ten-tac-gia">Auguste Comte</span>
             </a>
-            
+
             <a href="karl-marx.html" class="grid-item">
-                <h3>Bộ đề 1. Karl Marx</h3>
+                <span class="bo-de">Bộ đề 2</span>
+                <span class="ten-tac-gia">Karl Marx</span>
             </a>
-            
+
             <a href="emile-durkheim.html" class="grid-item">
-                <h3>Bộ đề 1. Emile Durkheim</h3>
+                <span class="bo-de">Bộ đề 3</span>
+                <span class="ten-tac-gia">Emile Durkheim</span>
             </a>
-            
+
             <a href="herbert-spencer.html" class="grid-item">
-                <h3>Bộ đề 1. Herbert Spencer</h3>
+                <span class="bo-de">Bộ đề 4</span>
+                <span class="ten-tac-gia">Herbert Spencer</span>
             </a>
-            
+
             <a href="max-weber.html" class="grid-item">
-                <h3>Bộ đề 1. Max Weber</h3>
+                <span class="bo-de">Bộ đề 5</span>
+                <span class="ten-tac-gia">Max Weber</span>
             </a>
         </div>
 
         <div class="back-nav">
-            <!-- Link quay trở lại trang danh sách các chương -->
             <a href="lua-chon.html?mode=chuong" class="back-link">← Quay lại danh sách chương</a>
         </div>
     </div>
