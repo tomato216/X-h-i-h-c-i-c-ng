@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -83,244 +83,121 @@
 
 <script>
     const questionsData = [
-        { q: "Câu 1. Karl Marx là nhà khoa học thuộc những lĩnh vực nào và là người sáng lập ra hệ tư tưởng nào?", opts: { A: "Nhà triết học, kinh tế học, xã hội học người Đức và là người sáng lập chủ nghĩa cộng sản khoa học", B: "Nhà nhân chủng học, luật học người Pháp và là người sáng lập chủ nghĩa thực chứng", C: "Nhà sử học, tâm lý học người Anh và là người sáng lập thuyết tiến hóa xã hội", D: "Nhà toán học, địa lý học người Nga và là người sáng lập chủ nghĩa chức năng" }, ans: "A", exp: "Karl Marx là nhà triết học, kinh tế học, xã hội học người Đức và là người sáng lập chủ nghĩa cộng sản khoa học." },
-        { q: "Câu 2. Theo các câu hỏi ôn tập và nội dung của tài liệu, Karl Marx sống trong giai đoạn nào?", opts: { A: "1798 – 1857", B: "1818 – 1883", C: "1820 – 1895", D: "1858 – 1917" }, ans: "B", exp: "Karl Marx sinh năm 1818 và mất năm 1883." },
-        { q: "Câu 3. Karl Marx đã học Luật tại trường đại học nào?", opts: { A: "Đại học Tổng hợp Berlin", B: "Đại học Tổng hợp Bonn", C: "Đại học Tổng hợp Paris", D: "Đại học Tổng hợp London" }, ans: "B", exp: "Ông học Luật ở Đại học Tổng hợp Bonn và sau đó là học Triết học tại Đại học Tổng hợp Berlin." },
-        { q: "Câu 4. Karl Marx tiếp tục học ngành Triết học tại trường đại học nào?", opts: { A: "Đại học Tổng hợp Bonn", B: "Đại học Tổng hợp Berlin", C: "Đại học Tổng hợp Frankfurt", D: "Đại học Tổng hợp Munich" }, ans: "B", exp: "Ông học Luật ở Đại học Tổng hợp Bonn và sau đó là học Triết học tại Đại học Tổng hợp Berlin." },
-        { q: "Câu 5. Sau khi tốt nghiệp vào năm 1841, Karl Marx đã bắt đầu thực hiện công việc gì?", opts: { A: "Giảng viên triết học tại Đại học Berlin", B: "Viết báo và làm chủ bút một tờ báo", C: "Luật sư biện hộ tại tòa án thành phố Bonn", D: "Quản lý một nhà máy dệt lớn ở Anh" }, ans: "B", exp: "Năm 1841, sau khi tốt nghiệp, Marx bắt đầu viết báo và làm chủ bút một tờ báo." },
-        { q: "Câu 6. Sau khi tờ báo ông làm việc bị đàn áp, Karl Marx phải chạy trốn sang Paris và đã gặp gỡ, kết bạn với ai?", opts: { A: "Saint Simon", B: "Friedrich Engels", C: "Auguste Comte", D: "G.W.F. Hegel" }, ans: "B", exp: "Khi tờ báo mà ông làm việc bị đàn áp, ông phải chạy trốn cùng cả gia đình sang Paris và ở đây ông gặp rồi kết bạn với Friedrich Engels." },
-        { q: "Câu 7. Khi gặp Karl Marx tại Paris, Friedrich Engels đang làm công việc gì?", opts: { A: "Giáo sư kinh tế học tại Đại học Tổng hợp Bonn", B: "Quản lý trong một nhà máy", C: "Phóng viên thường trú của tờ báo Đức tại Pháp", D: "Thư ký riêng cho một quý tộc người Anh" }, ans: "B", exp: "Khi tờ báo mà ông làm việc bị đàn áp, ông phải chạy trốn cùng cả gia đình sang Paris và ở đây ông gặp rồi kết bạn với Friedrich Engels (1820-1895) đang làm quản lý trong một nhà máy." },
-        { q: "Câu 8. Karl Marx và Friedrich Engels đã cùng nhau viết tác phẩm nổi tiếng nào để hoàn thiện học thuyết Marx?", opts: { A: "Bản thảo kinh tế - triết học", B: "Tuyên ngôn Đảng cộng sản", C: "Sự khốn cùng của triết học", D: "Luận cương về Feuerbach" }, ans: "B", exp: "Cả hai trở thành những người bạn thân thiết và cùng nhau viết Tuyên ngôn Đảng cộng sản và cùng hoàn thiện học thuyết Marx." },
-        { q: "Câu 9. Sau khi hoàn thiện 'Tuyên ngôn Đảng cộng sản', Karl Marx trở lại Đức rồi lại bị trục xuất một lần nữa, ông đã đến quốc gia nào để tiếp tục tác phẩm của mình trong hoàn cảnh bần hàn?", opts: { A: "Pháp", B: "Anh", C: "Mỹ", D: "Thụy Sĩ" }, ans: "B", exp: "Ông đến Anh và tiếp tục tác phẩm của mình trong canh bạc bần hàn." },
-        { q: "Câu 10. Đâu KHÔNG phải là một trong các tác phẩm chính của Karl Marx được liệt kê trong tài liệu?", opts: { A: "Gia đình thần thánh (1845)", B: "Hệ tư tưởng Đức (1846)", C: "Môn học triết học thực chứng (1830-1842)", D: "Bộ tư bản (1867)" }, ans: "C", exp: "Môn học triết học thực chứng là tác phẩm của Auguste Comte. Các tác phẩm còn lại đều là của Karl Marx." },
-        { q: "Câu 11. Tác phẩm nổi tiếng 'Bộ tư bản' (Das Kapital) của Karl Marx được xuất bản vào năm nào?", opts: { A: "1844", B: "1848", C: "1867", D: "1883" }, ans: "C", exp: "Tác phẩm 'Bộ tư bản' xuất bản năm 1867." },
-        { q: "Câu 12. Tác phẩm 'Tuyên ngôn Đảng Cộng sản' do Marx và Engels đồng tác giả được xuất bản vào năm nào?", opts: { A: "1841", B: "1845", C: "1848", D: "1867" }, ans: "C", exp: "Tác phẩm 'Tuyên ngôn Đảng Cộng sản' xuất bản năm 1848." },
-        { q: "Câu 13. Tác phẩm 'Bản thảo kinh tế - triết học' của Karl Marx được viết vào năm nào?", opts: { A: "1844", B: "1845", C: "1846", D: "1847" }, ans: "A", exp: "Các tác phẩm chính của ông bao gồm: Bản thảo kinh tế – triết học (1844)..." },
-        { q: "Câu 14. Lý luận và phương pháp luận xã hội học của Karl Marx được thể hiện rõ nét nhất trong học thuyết nào?", opts: { A: "Chủ nghĩa duy vật lịch sử", B: "Thuyết hành động xã hội duy lý", C: "Thuyết tương tác biểu trưng vi mô", D: "Thuyết tiến hóa xã hội đa tuyến" }, ans: "A", exp: "Lý luận và phương pháp luận xã hội học của Marx được thể hiện rõ nhất trong chủ nghĩa duy vật lịch sử (vẫn được các nhà xã hội học Mac - xít coi là xã hội học đại cương Mac - xít)." },
-        { q: "Câu 15. Theo nội dung tài liệu, chủ nghĩa duy vật lịch sử được định nghĩa là gì?", opts: { A: "Quan niệm duy tâm về sự vận động của thế giới tinh thần trong lịch sử", B: "Quan niệm duy vật biện chứng về quá trình, hiện tượng xã hội là sự thống nhất của chủ nghĩa duy vật và phép biến chứng về lịch sử và xã hội", C: "Phương pháp áp dụng các quy luật sinh học để giải thích sự sinh tồn của các giai cấp", D: "Sự nghiên cứu lịch sử dựa hoàn toàn trên biên niên sử của các vương triều phong kiến" }, ans: "B", exp: "Chủ nghĩa duy vật lịch sử là quan niệm duy vật biện chứng về quá trình, hiện tượng xã hội là sự thống nhất của chủ nghĩa duy vật và phép biến chứng về lịch sử và xã hội." },
-        { q: "Câu 16. Chủ nghĩa duy vật lịch sử đòi hỏi việc nghiên cứu xã hội phải giải thích khía cạnh nào của con người?", opts: { A: "Đời sống tâm linh và thế giới nội tâm huyền bí", B: "Hoạt động thực tiễn của cá nhân và các điều kiện sống vật chất của họ", C: "Khát vọng tự do trừu tượng không liên quan đến vật chất", D: "Chỉ số thông minh di truyền của từng dòng họ" }, ans: "B", exp: "Chủ nghĩa duy vật đòi hỏi nghiên cứu xã hội phải giải thích hoạt động thực tiễn của cá nhân và các điều kiện sống vật chất của họ." },
-        { q: "Câu 17. Xuất phát điểm của chủ nghĩa duy vật lịch sử là việc giải thích các quá trình lịch sử xã hội từ góc độ và quan điểm cốt lõi nào?", opts: { A: "Góc độ địa lý và quan điểm 'Ý thức xã hội quyết định tồn tại xã hội'", B: "Góc độ cơ sở kinh tế của xã hội, từ quan điểm 'tồn tại xã hội quyết định ý thức xã hội'", C: "Góc độ tôn giáo, từ quan điểm 'Ý chí của thần linh quyết định lịch sử'", D: "Góc độ tâm lý học, từ quan điểm 'Xung lực bản năng quyết định cấu trúc xã hội'" }, ans: "B", exp: "Xuất phát điểm của chủ nghĩa duy vật lịch sử là việc giải thích các quá trình lịch sử xã hội từ góc độ cơ sở kinh tế của xã hội, từ quan điểm 'tồn tại xã hội quyết định ý thức xã hội'." },
-        { q: "Câu 18. Karl Marx đã vận dụng và phát triển phép biện chứng của nhà triết học nào trong nghiên cứu hiện thực xã hội và con người?", opts: { A: "Platon", B: "Aristotle", C: "Hegel", D: "Feuerbach" }, ans: "C", exp: "Ông vận dụng và phát triển phép biện chứng của Hegel trong nghiên cứu hiện thực xã hội và con người." },
-        { q: "Câu 19. Chủ nghĩa duy vật lịch sử khi nghiên cứu xã hội đã xem xét xã hội với tư cách là gì?", opts: { A: "Một tập hợp ngẫu nhiên các cá nhân riêng lẻ không có liên kết", B: "Cơ cấu xã hội (hệ thống xã hội)", C: "Một thực thể chịu sự chi phối hoàn toàn của thế giới siêu nhiên", D: "Một mô hình tĩnh tại không bao giờ biến đổi" }, ans: "B", exp: "Chủ nghĩa duy vật lịch sử khi nghiên cứu xã hội đã xem xét xã hội với tư cách là cơ cấu xã hội (hệ thống xã hội)." },
-        { q: "Câu 20. Trong chủ nghĩa duy vật lịch sử, xã hội được hiểu là một chỉnh thể gồm có ba bộ phận có mối quan hệ qua lại với nhau là gì?", opts: { A: "Gia đình, dòng họ và bộ lạc", B: "Các giai cấp, các thiết chế, các chuẩn mực giá trị văn hóa", C: "Kinh tế nông nghiệp, kinh tế công nghiệp và kinh tế dịch vụ", D: "Nhà nước, quân đội và giáo hội" }, ans: "B", exp: "Xã hội ở đây được hiểu là một chỉnh thể gồm có ba bộ phận có mối quan hệ qua lại với nhau như các giai cấp, các thiết chế, các chuẩn mực giá trị văn hóa..." },
-        { q: "Câu 21. Theo Karl Marx, trong cơ cấu xã hội có giai cấp của xã hội tư bản, hai giai cấp lớn đối kháng gay gắt nhất với nhau là gì?", opts: { A: "Địa chủ và nông dân", B: "Chủ nô và nô lệ", C: "Giai cấp tư sản và giai cấp vô sản", D: "Quý tộc và bình dân" }, ans: "C", exp: "Theo Marx, trong cơ cấu xã hội có giai cấp, hai giai cấp lớn đối kháng với nhau gay gắt nhất là giai cấp tư sản và giai cấp vô sản." },
-        { q: "Câu 22. Trong tác phẩm 'Bộ tư bản', các quan hệ xã hội được Karl Marx nghiên cứu chủ yếu dưới góc độ nào?", opts: { A: "Vốn xã hội", B: "Vốn văn hóa", C: "Vốn kinh tế", D: "Vốn tâm lý" }, ans: "C", exp: "Quan hệ xã hội được tác giả này nghiên cứu dưới góc độ vốn kinh tế." },
-        { q: "Câu 23. Theo Karl Marx, nghiên cứu xã hội phải hướng vào việc chỉ ra nguồn gốc của sự biến đổi xã hội ở đâu?", opts: { A: "Từ sự thay đổi của khí hậu và địa lý bên ngoài xã hội", B: "Trong lòng xã hội chứ không phải là các yếu tố bên ngoài xã hội", C: "Từ ý chí tự do và ý thức chủ quan của các nhà lãnh đạo kiệt xuất", D: "Từ sự định đoạt định mệnh của các thế lực siêu nhiên thần bí" }, ans: "B", exp: "Ông cho rằng biến đổi xã hội là thuộc tính vốn có của mọi xã hội, nghiên cứu xã hội phải hướng vào việc chỉ ra được nguồn gốc biến đổi xã hội trong lòng xã hội chứ không phải là các yếu tố bên ngoài xã hội." },
-        { q: "Câu 24. Theo Karl Marx, nguồn gốc thúc đẩy sự phát triển xã hội xuất phát từ yếu tố nào giữa các bộ phận xã hội?", opts: { A: "Sự đồng thuận tuyệt đối và không có mâu thuẫn giữa các bộ phận", B: "Sự mâu thuẫn, thậm chí đối kháng nhau giữa các bộ phận xã hội", C: "Sự tác động hài hòa của các chuẩn mực giá trị văn hóa chung", D: "Sự can thiệp cải cách mang tính pháp lý từ phía nhà nước thống trị" }, ans: "B", exp: "Các bộ phận xã hội không chỉ tương tác qua lại với nhau mà còn mâu thuẫn, thậm chí đối kháng nhau. Đó là nguồn gốc thúc đẩy sự phát triển xã hội." },
-        { q: "Câu 25. Ví dụ nào được Marx đưa ra để minh họa cho quy luật mâu thuẫn nội tại thúc đẩy sự phát triển của xã hội tiếp theo?", opts: { A: "Chế độ phong kiến duy trì ổn định vĩnh viễn nhờ các thiết chế đạo đức nông nghiệp", B: "Chế độ phong kiến mang trong mình những quan hệ tất yếu dẫn đến sự ra đời của chủ nghĩa tư bản", C: "Chế độ phong kiến sụp đổ hoàn toàn do thiên tai và dịch bệnh bên ngoài", D: "Chế độ phong kiến được thay thế trực tiếp bởi xã hội chiếm hữu nô lệ" }, ans: "B", exp: "Chế độ phong kiến mang trong mình những quan hệ tất yếu dẫn đến sự ra đời của chủ nghĩa tư bản và đến lượt mình xã hội tư bản chứa đựng những quan hệ xã hội mâu thuẫn, đối kháng, điều này nhất định dẫn tới sự phát triển xã hội cộng sản chủ nghĩa." },
-        { q: "Câu 26. Luận điểm quan trọng về lý luận của Marx khẳng định con người có khả năng làm gì đối với xã hội khi đã nhận thức được các quy luật khách quan?", opts: { A: "Chấp nhận số phận một cách thụ động không thể thay đổi", B: "Vận dụng những quy luật đã nhận thức được ấy để cải tạo xã hội cho phù hợp với lợi ích của mình", C: "Xóa bỏ hoàn toàn mọi quy luật tự nhiên và xã hội bằng ý chí tự do của mình", D: "Quay trở lại thời kỳ sống bầy đàn hoang dã để có tự do tuyệt đối" }, ans: "B", exp: "Con người có khả năng vận dụng những quy luật đã nhận thức được ấy để cải tạo xã hội cho phù hợp với lợi ích của mình." },
-        { q: "Câu 27. Theo Marx, nhiệm vụ của lý luận khoa học xã hội là phải làm rõ điều gì để giúp ích cho hành động của con người?", opts: { A: "Chỉ ra điều kiện giúp con người nhận thức được lợi ích của mình, đoàn kết và tập trung vào phân tích mối quan hệ giữa con người và xã hội", B: "Thuyết phục con người từ bỏ mọi đấu tranh vật chất để hướng tới cứu rỗi tâm linh", C: "Chứng minh rằng người lao động cần thích nghi hoàn toàn với sự bóc lột của giới chủ", D: "Giải thích các quy luật toán học thuần túy để áp dụng vào xã hội học" }, ans: "A", exp: "Nhiệm vụ của lý luận khoa học xã hội là phải chỉ ra được các điều kiện giúp con người nhận thức được lợi ích của mình, đoàn kết và phải tập trung vào phân tích mối quan hệ giữa con người và xã hội." },
-        { q: "Câu 28. Đặc điểm cơ bản thứ nhất phân biệt con người khác với con vật theo Karl Marx là gì?", opts: { A: "Con người có khả năng sử dụng ngôn ngữ ký hiệu phức tạp", B: "Con người tự sản xuất ra các phương tiện để tồn tại và sống thông qua hoạt động sản xuất của cải vật chất", C: "Con người có khả năng tư duy trừu tượng về thế giới siêu nhiên thần bí", D: "Con người biết sống thành bầy đàn có tổ chức thứ bậc rõ ràng" }, ans: "B", exp: "Thứ nhất, con người khác với con vật là tự sản xuất ra các phương tiện để tồn tại và sống, cả bản chất con người và xã hội đều quy định bởi hoạt động sản xuất ra của cải vật chất." },
-        { q: "Câu 29. Theo đặc điểm thứ hai về bản chất con người của Marx, điều gì xảy ra khi các nhu cầu mới và cao hơn của con người được thỏa mãn?", opts: { A: "Con người trở nên lười biếng và ngừng hoạt động sáng tạo", B: "Con người có điều kiện bộc lộ các năng lực tiềm tàng (năng lực sáng tạo)", C: "Con người quay lại với các bản năng động vật nguyên thủy", D: "Năng lực sáng tạo của con người bị triệt tiêu hoàn toàn" }, ans: "B", exp: "Thứ hai, con người không ngừng có các nhu cầu mới và cao hơn. Khi nhu cầu được thỏa mãn thì con người có điều kiện bộc lộ các năng lực tiềm tàng (những năng lực này không có ở con vật). Đó là năng lực sáng tạo của con người." },
-        { q: "Câu 30. Đối với năng lực sáng tạo của con người, xã hội học theo Marx cần thực hiện nhiệm vụ gì?", opts: { A: "Hướng dẫn con người hạn chế năng lực sáng tạo để tránh xung đột với giới chủ", B: "Chỉ ra những điều kiện cản trở năng lực của con người để tìm cách xóa bỏ các rào cản ấy nhằm giải phóng con người", C: "Chứng minh rằng năng lực sáng tạo chỉ thuộc về giới chủ sở hữu tư bản", D: "Thuyết phục con người chấp nhận các rào cản xã hội như một quy luật định mệnh" }, ans: "B", exp: "Xã hội học cần chỉ ra những điều kiện cản trước năng lực của con người để tìm cách xóa bỏ các rào cản ấy và như vậy, con người sẽ được giải phóng." },
-        { q: "Câu 31. Theo đặc điểm thứ ba của Marx, sự phân công lao động trong xã hội dựa trên hình thức sở hữu nào về tư liệu sản xuất?", opts: { A: "Sở hữu nhà nước phong kiến quân chủ", B: "Sở hữu tư nhân về tư liệu sản xuất (máy móc, đất đai, tư bản...)", C: "Sở hữu tập thể của toàn thể người lao động", D: "Sở hữu chung tự nhiên của toàn nhân loại" }, ans: "B", exp: "Thứ ba, phân công lao động dựa trên hình thức sở hữu tư nhân về tư liệu sản xuất như: máy móc, đất đai, tư bản..." },
-        { q: "Câu 32. Yếu tố nào được Marx coi là nguồn gốc sinh ra cơ cấu phân tầng xã hội, chia xã hội thành giới chủ sở hữu tư liệu sản xuất và giới lao động bán sức lao động?", opts: { A: "Sự khác biệt về trí thông minh bẩm sinh của các cá nhân", B: "Sở hữu tư nhân về tư liệu sản xuất", C: "Sự phân bố ngẫu nhiên về địa hình cư trú nông thôn và thành thị", D: "Sự khác biệt về chủng tộc và giới tính" }, ans: "B", exp: "Marx coi sở hữu tư nhân về tư liệu sản xuất ra cơ cấu phân tầng xã hội, giới chủ là giới sở hữu tư liệu sản xuất và giới lao động là những người không có tư liệu sản xuất phải bán sức lao động." },
-        { q: "Câu 33. Về mặt thực tiễn, Karl Marx đề xuất giải pháp nào đối với chế độ sở hữu tư nhân để xây dựng một xã hội công bằng, văn minh?", opts: { A: "Giữ nguyên chế độ sở hữu tư nhân nhưng tăng mức thuế thu nhập của giới chủ", B: "Xóa bỏ và thay thế chế độ sở hữu tư nhân bằng sở hữu tập thể và toàn xã hội", C: "Chia nhỏ tư liệu sản xuất tư nhân cho từng cá nhân tự quản lý độc lập", D: "Nhờ cậy sự điều hòa tự nguyện từ lòng tốt và sự từ thiện của giới chủ sở hữu tư bản" }, ans: "B", exp: "Về thực tiễn, cần xóa bỏ và thay thế chế độ sở hữu tư nhân bằng sở hữu tập thể và toàn xã hội để xây dựng xã hội công bằng, văn minh." },
-        { q: "Câu 34. Về mặt lý luận, xã hội học theo quan điểm của Marx cần giải thích cơ cấu xã hội nhằm mục đích gì?", opts: { A: "Chứng minh rằng cơ cấu xã hội hiện có là hoàn hảo không cần thay đổi", B: "Chỉ ra ai là người có lợi, ai là người bị thiệt từ cách tổ chức xã hội và cơ cấu xã hội hiện có", C: "Thuyết phục người lao động chấp nhận sự phân công lao động hiện tại", D: "Nghiên cứu tâm lý hành vi tiêu dùng của các giai cấp xã hội" }, ans: "B", exp: "Về lý luận, xã hội học cần giải thích cơ cấu xã hội để chỉ ra ai là người có lợi, ai là người bị thiệt từ cách tổ chức xã hội và cơ cấu xã hội hiện có." },
-        { q: "Câu 35. Theo đặc điểm thứ tư của Marx, ý thức xã hội (hệ tư tưởng, văn hóa...) xuất hiện trên nền tảng nào?", opts: { A: "Nền tảng tâm linh tôn giáo siêu nhiên", B: "Nền tảng vật chất là sản xuất (tức là sự phân công lao động xã hội)", C: "Sự sáng tạo ngẫu hứng của các nhà văn, nhà thơ lớn", D: "Các quy định pháp luật hành chính của nhà nước" }, ans: "B", exp: "Đặc điểm của mọi xã hội, ý thức xã hội (hệ tư tưởng, văn hóa...) xuất hiện trên nền tảng vật chất là sản xuất (tức là sự phân công lao động xã hội)." },
-        { q: "Câu 36. Học thuyết nào của Marx đã mở ra bước ngoặt có tính cách mạng trong nhận thức của con người về cách phân chia các giai đoạn lịch sử?", opts: { A: "Học thuyết về các nhóm xã hội nhỏ", B: "Thuyết về hình thái kinh tế - xã hội", C: "Thuyết hành động xã hội duy cảm", D: "Thuyết tương tác biểu trưng vi mô" }, ans: "B", exp: "Thông qua thuyết về hình thái kinh tế xã hội của ông, ông đã chứng minh rằng xã hội luôn luôn vận động và phát triển trên cơ sở quy luật khách quan và trải qua các hình thái kinh tế xã hội khác nhau." },
-        { q: "Câu 37. Theo thuyết hình thái kinh tế - xã hội của Marx, lịch sử loài người trải qua năm phương thức sản xuất ứng với năm chế độ lịch sử nào?", opts: { A: "Nguyên thủy, dã man, phong kiến, tư bản, công nghiệp", B: "Nguyên thủy, nô lệ, phong kiến, tư bản và cộng sản chủ nghĩa", C: "Chiếm hữu nô lệ, trung cổ, cận đại, hiện đại, hậu hiện đại", D: "Nông nghiệp, công nghiệp, dịch vụ, tri thức, thông tin" }, ans: "B", exp: "Lịch sử xã hội trải qua năm phương thức sản xuất ứng với năm hình thái kinh tế xã hội và năm chế độ lịch sử: nguyên thủy, nô lệ, phong kiến, tư bản và cộng sản chủ nghĩa." },
-        { q: "Câu 38. Quan niệm duy vật biện chứng về lịch sử của Karl Marx ra đời đã thay thế trực tiếp cho quan niệm sai lầm nào về lịch sử xã hội trước đó?", opts: { A: "Quan niệm thực chứng luận của xã hội học tự nhiên", B: "Quan niệm duy tâm về lịch sử xã hội", C: "Quan niệm tiến hóa sinh học của Darwin", D: "Quan niệm cấu trúc - chức năng hiện đại" }, ans: "B", exp: "Ông đã đưa ra một quan niệm mới về xã hội, đó là quan niệm duy vật biện chứng về lịch sử (ông đã thay thế quan niệm duy tâm về lịch sử xã hội)." },
-        { q: "Câu 39. Theo quan niệm duy vật biện chứng về lịch sử của Marx, sự biến đổi xã hội và phát triển lịch sử bắt nguồn từ đâu?", opts: { A: "Từ các lý thuyết khoa học của các nhà triết học lỗi lạc", B: "Từ hệ thống sản xuất, cơ cấu kinh tế của xã hội", C: "Từ các biến động thời tiết và khí hậu trên trái đất", D: "Từ sự hoàn thiện đạo đức cá nhân của con người" }, ans: "B", exp: "Ông chỉ ra rằng sự biến đổi xã hội và sự phát triển lịch sử bắt nguồn từ hệ thống sản xuất, cơ cấu kinh tế của xã hội." },
-        { q: "Câu 40. Theo lý thuyết tha hóa của Marx, cái làm loài người khác biệt với các loài sinh vật khác là khả năng nào?", opts: { A: "Khả năng thích nghi thụ động với môi trường tự nhiên", B: "Khả năng kiểm soát tự nhiên bằng hoạt động sáng tạo", C: "Khả năng sinh sản duy trì nòi giống liên tục", D: "Khả năng tiêu thụ thức ăn chín thông qua nấu nướng" }, ans: "B", exp: "Nền tảng của lý thuyết là nhận định về cái làm loài người khác biệt với các loài khác là khả năng kiểm soát tự nhiên bằng hoạt động sáng tạo." },
-        { q: "Câu 41. Theo Marx, tha hóa lao động tạo ra hệ quả xấu nhất của nó trong điều kiện xã hội nào?", opts: { A: "Xã hội chiếm hữu nô lệ cổ đại", B: "Xã hội phong kiến nông nghiệp châu Âu", C: "Chủ nghĩa tư bản công nghiệp", D: "Xã hội cộng sản nguyên thủy tự cung tự cấp" }, ans: "C", exp: "Với chủ nghĩa tư bản công nghiệp, tha hóa lao động tạo ra hệ quả xấu nhất của nó vì ở đây, người công nhân bị buộc vào cỗ máy để làm công việc vô nghĩa, một phần của quá trình rộng lớn hơn." },
-        { q: "Câu 42. Trong chủ nghĩa tư bản công nghiệp, người công nhân bị buộc phải bán yếu tố nào của mình như một sản phẩm mua bán được cho giới chủ?", opts: { A: "Tài sản gia đình của họ", B: "Khả năng làm việc (sức lao động của họ)", C: "Quyền công dân hợp pháp của họ", D: "Niềm tin tôn giáo cá nhân của họ" }, ans: "B", exp: "Họ bị buộc phải bán khả năng làm việc (sức lao động của họ) cho người chủ như một sản phẩm mua bán được." },
-        { q: "Câu 43. Theo lý thuyết tha hóa, mối quan hệ giữa lao động của người công nhân và sự bóc lột của nhà tư bản diễn ra thế nào?", opts: { A: "Lao động của người công nhân càng nhẹ nhàng thì họ càng bị bóc lột nhiều hơn", B: "Lao động của người công nhân càng nặng nhọc hơn thì họ càng bị nhà tư bản bóc lột nhiều hơn", C: "Lao động của người công nhân không có bất kỳ mối liên hệ nào với mức độ bóc lột", D: "Giới chủ tư bản hoàn toàn không bóc lột sức lao động của công nhân" }, ans: "B", exp: "Sản phẩm của lao động này bị nhà tư bản sở hữu, bán ra và vì thế, lao động của người công nhân càng nặng nhọc hơn thì họ càng bị nhà tư bản bóc lột nhiều hơn." },
-        { q: "Câu 44. Theo học thuyết của Karl Marx, 'hình thái kinh tế - xã hội' dùng để chỉ điều gì?", opts: { A: "Một vương quốc có sự ổn định tuyệt đối về mặt chính trị quân sự", B: "Xã hội ở một giai đoạn phát triển cụ thể nhất định", C: "Một tập hợp các tôn giáo có cùng chung nguồn gốc lịch sử", D: "Hệ thống các máy móc cơ khí được sử dụng trong công nghiệp dệt" }, ans: "B", exp: "Hình thái kinh tế - xã hội chỉ xã hội ở một giai đoạn phát triển cụ thể nhất định." },
-        { q: "Câu 45. Karl Marx xác định hai yếu tố nào cấu thành hai mặt của một phương thức sản xuất?", opts: { A: "Cơ sở hạ tầng và kiến trúc thượng tầng", B: "Lực lượng sản xuất và quan hệ sản xuất", C: "Giai cấp tư sản và giai cấp vô sản", D: "Ý thức xã hội và tồn tại xã hội" }, ans: "B", exp: "Mối quan hệ giữa lực lượng sản xuất và quan hệ sản xuất cấu thành hai mặt của một phương thức sản xuất." },
-        { q: "Câu 46. Theo học thuyết hình thái kinh tế - xã hội, 'cơ sở hạ tầng' được định nghĩa là gì?", opts: { A: "Hệ thống đường giao thông và cầu cống phục vụ vận chuyển hàng hóa công nghiệp", B: "Toàn bộ quan hệ sản xuất hợp thành các cấu trúc tinh tế của một hình thái kinh tế - xã hội, đóng vai trò là nền tảng đời sống", C: "Hệ thống luật pháp và tòa án hành chính của nhà nước tư bản", D: "Hệ thống các nhà thờ và giáo lý tôn giáo của xã hội trung cổ" }, ans: "B", exp: "Cơ sở hạ tầng là toàn bộ quan hệ sản xuất hợp thành các cấu trúc tinh tế của một hình thái kinh tế - xã hội. Cơ sở hạ tầng có vai trò là nền tảng của đời sống con người." },
-        { q: "Câu 47. Theo học thuyết hình thái kinh tế - xã hội, 'kiến trúc thượng tầng' được định nghĩa là gì?", opts: { A: "Các tòa nhà cao tầng và các công trình xây dựng kiên cố ở đô thị công nghiệp", B: "Toàn bộ hệ tư tưởng phản ánh những mặt cơ bản của hình thái kinh tế - xã hội", C: "Các công cụ lao động như máy móc dệt và nguyên liệu thô", D: "Lực lượng lao động cơ bắp của giai cấp công nhân vô sản" }, ans: "B", exp: "Kiến trúc thượng tầng là toàn bộ hệ tư tưởng phản ánh những mặt cơ bản của hình thái kinh tế - xã hội." },
-        { q: "Câu 48. Karl Marx coi xã hội tư bản giống như một thực thể nào dưới góc nhìn phương pháp luận?", opts: { A: "Một cỗ máy cơ học vô tri vô giác", B: "Cơ thể sống", C: "Một tác phẩm nghệ thuật tinh vi", D: "Một lâu đài phong kiến tĩnh lặng" }, ans: "B", exp: "Marx coi xã hội tư bản là cơ thể sống." },
-        { q: "Câu 49. Trong thuyết xung đột của Karl Marx, ông chia xã hội thời đó thành năm giai cấp đối lập nhau theo hình tháp, trong đó giai cấp nào nằm ở tầng đáy và giai cấp nào ở đỉnh tháp?", opts: { A: "Tầng đáy là quý tộc, đỉnh tháp là tăng lữ nhà thờ", B: "Tầng đáy là giai cấp vô sản/giai cấp công nhân, đỉnh tháp là giai cấp tư sản", C: "Tầng đáy là quân đội, đỉnh tháp là tầng lớp tăng lữ", D: "Tầng đáy là giới chủ, đỉnh tháp là giới lao động tự do" }, ans: "B", exp: "Ông chia xã hội thời đó thành năm giai cấp đối lập nhau theo hình thức kim tự tháp: (1) tầng đáy là giai cấp vô sản/giai cấp công nhân; (2) tiếp theo là giai cấp quân đội; (3) thứ ba là tầng lớp tăng lữ, nhà thờ; (4) thứ tư là tầng lớp quý tộc và (5) trên đỉnh tháp là giai cấp tư sản." },
-        { q: "Câu 50. Đối với Karl Marx, xung đột xã hội gắn liền với hoạt động căn bản nào?", opts: { A: "Cuộc cạnh tranh thương mại giữa các tập đoàn đa quốc gia", B: "Cuộc đấu tranh giai cấp", C: "Sự xung đột giữa các thế hệ thành viên trong gia đình nông thôn", D: "Sự mâu thuẫn giữa các nhà khoa học về lý thuyết vật lý học" }, ans: "B", exp: "Đối với Karl Marx, xung đột gắn với cuộc đấu tranh giai cấp." }
+        { q: "1. Karl Marx là nhà khoa học thuộc những lĩnh vực nào và là người sáng lập ra hệ tư tưởng nào?", opts: { A: "Nhà triết học, kinh tế học, xã hội học người Đức và là người sáng lập chủ nghĩa cộng sản khoa học", B: "Nhà nhân chủng học, luật học người Pháp và là người sáng lập chủ nghĩa thực chứng", C: "Nhà sử học, tâm lý học người Anh và là người sáng lập thuyết tiến hóa xã hội", D: "Nhà toán học, địa lý học người Nga và là người sáng lập chủ nghĩa chức năng" }, ans: "A", exp: "Karl Marx là nhà triết học, kinh tế học, xã hội học người Đức và là người sáng lập chủ nghĩa cộng sản khoa học." },
+        { q: "2. Theo các câu hỏi ôn tập và nội dung của tài liệu, Karl Marx sống trong giai đoạn nào?", opts: { A: "1798 – 1857", B: "1818 – 1883", C: "1820 – 1895", D: "1858 – 1917" }, ans: "B", exp: "Karl Marx sinh năm 1818 và mất năm 1883." },
+        { q: "3. Karl Marx đã học Luật tại trường đại học nào?", opts: { A: "Đại học Tổng hợp Berlin", B: "Đại học Tổng hợp Bonn", C: "Đại học Tổng hợp Paris", D: "Đại học Tổng hợp London" }, ans: "B", exp: "Ông học Luật ở Đại học Tổng hợp Bonn và sau đó là học Triết học tại Đại học Tổng hợp Berlin." },
+        { q: "4. Karl Marx tiếp tục học ngành Triết học tại trường đại học nào?", opts: { A: "Đại học Tổng hợp Bonn", B: "Đại học Tổng hợp Berlin", C: "Đại học Tổng hợp Frankfurt", D: "Đại học Tổng hợp Munich" }, ans: "B", exp: "Ông học Luật ở Đại học Tổng hợp Bonn và sau đó là học Triết học tại Đại học Tổng hợp Berlin." },
+        { q: "5. Sau khi tốt nghiệp vào năm 1841, Karl Marx đã bắt đầu thực hiện công việc gì?", opts: { A: "Giảng viên triết học tại Đại học Berlin", B: "Viết báo và làm chủ bút một tờ báo", C: "Luật sư biện hộ tại tòa án thành phố Bonn", D: "Quản lý một nhà máy dệt lớn ở Anh" }, ans: "B", exp: "Năm 1841, sau khi tốt nghiệp, Marx bắt đầu viết báo và làm chủ bút một tờ báo." },
+        { q: "6. Sau khi tờ báo ông làm việc bị đàn áp, Karl Marx phải chạy trốn sang Paris và đã gặp gỡ, kết bạn với ai?", opts: { A: "Saint Simon", B: "Friedrich Engels", C: "Auguste Comte", D: "G.W.F. Hegel" }, ans: "B", exp: "Khi tờ báo mà ông làm việc bị đàn áp, ông phải chạy trốn cùng cả gia đình sang Paris và ở đây ông gặp rồi kết bạn với Friedrich Engels." },
+        { q: "7. Khi gặp Karl Marx tại Paris, Friedrich Engels đang làm công việc gì?", opts: { A: "Giáo sư kinh tế học tại Đại học Tổng hợp Bonn", B: "Quản lý trong một nhà máy", C: "Phóng viên thường trú của tờ báo Đức tại Pháp", D: "Thư ký riêng cho một quý tộc người Anh" }, ans: "B", exp: "Khi tờ báo mà ông làm việc bị đàn áp, ông phải chạy trốn cùng cả gia đình sang Paris và ở đây ông gặp rồi kết bạn với Friedrich Engels (1820-1895) đang làm quản lý trong một nhà máy." },
+        { q: "8. Karl Marx và Friedrich Engels đã cùng nhau viết tác phẩm nổi tiếng nào để hoàn thiện học thuyết Marx?", opts: { A: "Bản thảo kinh tế - triết học", B: "Tuyên ngôn Đảng cộng sản", C: "Sự khốn cùng của triết học", D: "Luận cương về Feuerbach" }, ans: "B", exp: "Cả hai trở thành những người bạn thân thiết và cùng nhau viết Tuyên ngôn Đảng cộng sản và cùng hoàn thiện học thuyết Marx." },
+        { q: "9. Sau khi hoàn thiện 'Tuyên ngôn Đảng cộng sản', Karl Marx trở lại Đức rồi lại bị trục xuất một lần nữa, ông đã đến quốc gia nào để tiếp tục tác phẩm của mình trong hoàn cảnh bần hàn?", opts: { A: "Pháp", B: "Anh", C: "Mỹ", D: "Thụy Sĩ" }, ans: "B", exp: "Ông đến Anh và tiếp tục tác phẩm của mình trong canh bạc bần hàn." },
+        { q: "10. Đâu KHÔNG phải là một trong các tác phẩm chính của Karl Marx được liệt kê trong tài liệu?", opts: { A: "Gia đình thần thánh (1845)", B: "Hệ tư tưởng Đức (1846)", C: "Môn học triết học thực chứng (1830-1842)", D: "Bộ tư bản (1867)" }, ans: "C", exp: "Môn học triết học thực chứng là tác phẩm của Auguste Comte. Các tác phẩm còn lại đều là của Karl Marx." },
+        { q: "11. Tác phẩm nổi tiếng 'Bộ tư bản' (Das Kapital) của Karl Marx được xuất bản vào năm nào?", opts: { A: "1844", B: "1848", C: "1867", D: "1883" }, ans: "C", exp: "Tác phẩm 'Bộ tư bản' xuất bản năm 1867." },
+        { q: "12. Tác phẩm 'Tuyên ngôn Đảng Cộng sản' do Marx và Engels đồng tác giả được xuất bản vào năm nào?", opts: { A: "1841", B: "1845", C: "1848", D: "1867" }, ans: "C", exp: "Tác phẩm 'Tuyên ngôn Đảng Cộng sản' xuất bản năm 1848." },
+        { q: "13. Tác phẩm 'Bản thảo kinh tế - triết học' của Karl Marx được viết vào năm nào?", opts: { A: "1844", B: "1845", C: "1846", D: "1847" }, ans: "A", exp: "Các tác phẩm chính của ông bao gồm: Bản thảo kinh tế – triết học (1844)..." },
+        { q: "14. Lý luận và phương pháp luận xã hội học của Karl Marx được thể hiện rõ nét nhất trong học thuyết nào?", opts: { A: "Chủ nghĩa duy vật lịch sử", B: "Thuyết hành động xã hội duy lý", C: "Thuyết tương tác biểu trưng vi mô", D: "Thuyết tiến hóa xã hội đa tuyến" }, ans: "A", exp: "Lý luận và phương pháp luận xã hội học của Marx được thể hiện rõ nhất trong chủ nghĩa duy vật lịch sử (vẫn được các nhà xã hội học Mac - xít coi là xã hội học đại cương Mac - xít)." },
+        { q: "15. Theo nội dung tài liệu, chủ nghĩa duy vật lịch sử được định nghĩa là gì?", opts: { A: "Quan niệm duy tâm về sự vận động của thế giới tinh thần trong lịch sử", B: "Quan niệm duy vật biện chứng về quá trình, hiện tượng xã hội là sự thống nhất của chủ nghĩa duy vật và phép biến chứng về lịch sử và xã hội", C: "Phương pháp áp dụng các quy luật sinh học để giải thích sự sinh tồn của các giai cấp", D: "Sự nghiên cứu lịch sử dựa hoàn toàn trên biên niên sử của các vương triều phong kiến" }, ans: "B", exp: "Chủ nghĩa duy vật lịch sử là quan niệm duy vật biện chứng về quá trình, hiện tượng xã hội là sự thống nhất của chủ nghĩa duy vật và phép biến chứng về lịch sử và xã hội." },
+        { q: "16. Chủ nghĩa duy vật lịch sử đòi hỏi việc nghiên cứu xã hội phải giải thích khía cạnh nào của con người?", opts: { A: "Đời sống tâm linh và thế giới nội tâm huyền bí", B: "Hoạt động thực tiễn của cá nhân và các điều kiện sống vật chất của họ", C: "Khát vọng tự do trừu tượng không liên quan đến vật chất", D: "Chỉ số thông minh di truyền của từng dòng họ" }, ans: "B", exp: "Chủ nghĩa duy vật đòi hỏi nghiên cứu xã hội phải giải thích hoạt động thực tiễn của cá nhân và các điều kiện sống vật chất của họ." },
+        { q: "17. Xuất phát điểm của chủ nghĩa duy vật lịch sử là việc giải thích các quá trình lịch sử xã hội từ góc độ và quan điểm cốt lõi nào?", opts: { A: "Góc độ địa lý và quan điểm 'Ý thức xã hội quyết định tồn tại xã hội'", B: "Góc độ cơ sở kinh tế của xã hội, từ quan điểm 'tồn tại xã hội quyết định ý thức xã hội'", C: "Góc độ tôn giáo, từ quan điểm 'Ý chí của thần linh quyết định lịch sử'", D: "Góc độ tâm lý học, từ quan điểm 'Xung lực bản năng quyết định cấu trúc xã hội'" }, ans: "B", exp: "Xuất phát điểm của chủ nghĩa duy vật lịch sử là việc giải thích các quá trình lịch sử xã hội từ góc độ cơ sở kinh tế của xã hội, từ quan điểm 'tồn tại xã hội quyết định ý thức xã hội'." },
+        { q: "18. Karl Marx đã vận dụng và phát triển phép biện chứng của nhà triết học nào trong nghiên cứu hiện thực xã hội và con người?", opts: { A: "Platon", B: "Aristotle", C: "Hegel", D: "Feuerbach" }, ans: "C", exp: "Ông vận dụng và phát triển phép biện chứng của Hegel trong nghiên cứu hiện thực xã hội và con người." },
+        { q: "19. Chủ nghĩa duy vật lịch sử khi nghiên cứu xã hội đã xem xét xã hội với tư cách là gì?", opts: { A: "Một tập hợp ngẫu nhiên các cá nhân riêng lẻ không có liên kết", B: "Cơ cấu xã hội (hệ thống xã hội)", C: "Một thực thể chịu sự chi phối hoàn toàn của thế giới siêu nhiên", D: "Một mô hình tĩnh tại không bao giờ biến đổi" }, ans: "B", exp: "Chủ nghĩa duy vật lịch sử khi nghiên cứu xã hội đã xem xét xã hội với tư cách là cơ cấu xã hội (hệ thống xã hội)." },
+        { q: "20. Trong chủ nghĩa duy vật lịch sử, xã hội được hiểu là một chỉnh thể gồm có ba bộ phận có mối quan hệ qua lại với nhau là gì?", opts: { A: "Gia đình, dòng họ và bộ lạc", B: "Các giai cấp, các thiết chế, các chuẩn mực giá trị văn hóa", C: "Kinh tế nông nghiệp, kinh tế công nghiệp và kinh tế dịch vụ", D: "Nhà nước, quân đội và giáo hội" }, ans: "B", exp: "Xã hội ở đây được hiểu là một chỉnh thể gồm có ba bộ phận có mối quan hệ qua lại với nhau như các giai cấp, các thiết chế, các chuẩn mực giá trị văn hóa..." },
+        { q: "21. Theo Karl Marx, trong cơ cấu xã hội có giai cấp của xã hội tư bản, hai giai cấp lớn đối kháng gay gắt nhất với nhau là gì?", opts: { A: "Địa chủ và nông dân", B: "Chủ nô và nô lệ", C: "Giai cấp tư sản và giai cấp vô sản", D: "Quý tộc và bình dân" }, ans: "C", exp: "Theo Marx, trong cơ cấu xã hội có giai cấp, hai giai cấp lớn đối kháng với nhau gay gắt nhất là giai cấp tư sản và giai cấp vô sản." },
+        { q: "22. Trong tác phẩm 'Bộ tư bản', các quan hệ xã hội được Karl Marx nghiên cứu chủ yếu dưới góc độ nào?", opts: { A: "Vốn xã hội", B: "Vốn văn hóa", C: "Vốn kinh tế", D: "Vốn tâm lý" }, ans: "C", exp: "Quan hệ xã hội được tác giả này nghiên cứu dưới góc độ vốn kinh tế." },
+        { q: "23. Theo Karl Marx, nghiên cứu xã hội phải hướng vào việc chỉ ra nguồn gốc của sự biến đổi xã hội ở đâu?", opts: { A: "Từ sự thay đổi của khí hậu và địa lý bên ngoài xã hội", B: "Trong lòng xã hội chứ không phải là các yếu tố bên ngoài xã hội", C: "Từ ý chí tự do và ý thức chủ quan của các nhà lãnh đạo kiệt xuất", D: "Từ sự định đoạt định mệnh của các thế lực siêu nhiên thần bí" }, ans: "B", exp: "Ông cho rằng biến đổi xã hội là thuộc tính vốn có của mọi xã hội, nghiên cứu xã hội phải hướng vào việc chỉ ra được nguồn gốc biến đổi xã hội trong lòng xã hội chứ không phải là các yếu tố bên ngoài xã hội." },
+        { q: "24. Theo Karl Marx, nguồn gốc thúc đẩy sự phát triển xã hội xuất phát từ yếu tố nào giữa các bộ phận xã hội?", opts: { A: "Sự đồng thuận tuyệt đối và không có mâu thuẫn giữa các bộ phận", B: "Sự mâu thuẫn, thậm chí đối kháng nhau giữa các bộ phận xã hội", C: "Sự tác động hài hòa của các chuẩn mực giá trị văn hóa chung", D: "Sự can thiệp cải cách mang tính pháp lý từ phía nhà nước thống trị" }, ans: "B", exp: "Các bộ phận xã hội không chỉ tương tác qua lại với nhau mà còn mâu thuẫn, thậm chí đối kháng nhau. Đó là nguồn gốc thúc đẩy sự phát triển xã hội." },
+        { q: "25. Ví dụ nào được Marx đưa ra để minh họa cho quy luật mâu thuẫn nội tại thúc đẩy sự phát triển của xã hội tiếp theo?", opts: { A: "Chế độ phong kiến duy trì ổn định vĩnh viễn nhờ các thiết chế đạo đức nông nghiệp", B: "Chế độ phong kiến mang trong mình những quan hệ tất yếu dẫn đến sự ra đời của chủ nghĩa tư bản", C: "Chế độ phong kiến sụp đổ hoàn toàn do thiên tai và dịch bệnh bên ngoài", D: "Chế độ phong kiến được thay thế trực tiếp bởi xã hội chiếm hữu nô lệ" }, ans: "B", exp: "Chế độ phong kiến mang trong mình những quan hệ tất yếu dẫn đến sự ra đời của chủ nghĩa tư bản và đến lượt mình xã hội tư bản chứa đựng những quan hệ xã hội mâu thuẫn, đối kháng, điều này nhất định dẫn tới sự phát triển xã hội cộng sản chủ nghĩa." },
+        { q: "26. Luận điểm quan trọng về lý luận của Marx khẳng định con người có khả năng làm gì đối với xã hội khi đã nhận thức được các quy luật khách quan?", opts: { A: "Chấp nhận số phận một cách thụ động không thể thay đổi", B: "Vận dụng những quy luật đã nhận thức được ấy để cải tạo xã hội cho phù hợp với lợi ích của mình", C: "Xóa bỏ hoàn toàn mọi quy luật tự nhiên và xã hội bằng ý chí tự do của mình", D: "Quay trở lại thời kỳ sống bầy đàn hoang dã để có tự do tuyệt đối" }, ans: "B", exp: "Con người có khả năng vận dụng những quy luật đã nhận thức được ấy để cải tạo xã hội cho phù hợp với lợi ích của mình." },
+        { q: "27. Theo Marx, nhiệm vụ của lý luận khoa học xã hội là phải làm rõ điều gì để giúp ích cho hành động của con người?", opts: { A: "Chỉ ra điều kiện giúp con người nhận thức được lợi ích của mình, đoàn kết và tập trung vào phân tích mối quan hệ giữa con người và xã hội", B: "Thuyết phục con người từ bỏ mọi đấu tranh vật chất để hướng tới cứu rỗi tâm linh", C: "Chứng minh rằng người lao động cần thích nghi hoàn toàn với sự bóc lột của giới chủ", D: "Giải thích các quy luật toán học thuần túy để áp dụng vào xã hội học" }, ans: "A", exp: "Nhiệm vụ của lý luận khoa học xã hội là phải chỉ ra được các điều kiện giúp con người nhận thức được lợi ích của mình, đoàn kết và phải tập trung vào phân tích mối quan hệ giữa con người và xã hội." },
+        { q: "28. Đặc điểm cơ bản thứ nhất phân biệt con người khác với con vật theo Karl Marx là gì?", opts: { A: "Con người có khả năng sử dụng ngôn ngữ ký hiệu phức tạp", B: "Con người tự sản xuất ra các phương tiện để tồn tại và sống thông qua hoạt động sản xuất của cải vật chất", C: "Con người có khả năng tư duy trừu tượng về thế giới siêu nhiên thần bí", D: "Con người biết sống thành bầy đàn có tổ chức thứ bậc rõ ràng" }, ans: "B", exp: "Thứ nhất, con người khác với con vật là tự sản xuất ra các phương tiện để tồn tại và sống, cả bản chất con người và xã hội đều quy định bởi hoạt động sản xuất ra của cải vật chất." },
+        { q: "29. Theo đặc điểm thứ hai về bản chất con người của Marx, điều gì xảy ra khi các nhu cầu mới và cao hơn của con người được thỏa mãn?", opts: { A: "Con người trở nên lười biếng và ngừng hoạt động sáng tạo", B: "Con người có điều kiện bộc lộ các năng lực tiềm tàng (năng lực sáng tạo)", C: "Con người quay lại với các bản năng động vật nguyên thủy", D: "Năng lực sáng tạo của con người bị triệt tiêu hoàn toàn" }, ans: "B", exp: "Thứ hai, con người không ngừng có các nhu cầu mới và cao hơn. Khi nhu cầu được thỏa mãn thì con người có điều kiện bộc lộ các năng lực tiềm tàng (những năng lực này không có ở con vật). Đó là năng lực sáng tạo của con người." },
+        { q: "30. Đối với năng lực sáng tạo của con người, xã hội học theo Marx cần thực hiện nhiệm vụ gì?", opts: { A: "Hướng dẫn con người hạn chế năng lực sáng tạo để tránh xung đột với giới chủ", B: "Chỉ ra những điều kiện cản trở năng lực của con người để tìm cách xóa bỏ các rào cản ấy nhằm giải phóng con người", C: "Chứng minh rằng năng lực sáng tạo chỉ thuộc về giới chủ sở hữu tư bản", D: "Thuyết phục con người chấp nhận các rào cản xã hội như một quy luật định mệnh" }, ans: "B", exp: "Xã hội học cần chỉ ra những điều kiện cản trước năng lực của con người để tìm cách xóa bỏ các rào cản ấy và như vậy, con người sẽ được giải phóng." },
+        { q: "31. Theo đặc điểm thứ ba của Marx, sự phân công lao động trong xã hội dựa trên hình thức sở hữu nào về tư liệu sản xuất?", opts: { A: "Sở hữu nhà nước phong kiến quân chủ", B: "Sở hữu tư nhân về tư liệu sản xuất (máy móc, đất đai, tư bản...)", C: "Sở hữu tập thể của toàn thể người lao động", D: "Sở hữu chung tự nhiên của toàn nhân loại" }, ans: "B", exp: "Thứ ba, phân công lao động dựa trên hình thức sở hữu tư nhân về tư liệu sản xuất như: máy móc, đất đai, tư bản..." },
+        { q: "32. Yếu tố nào được Marx coi là nguồn gốc sinh ra cơ cấu phân tầng xã hội, chia xã hội thành giới chủ sở hữu tư liệu sản xuất và giới lao động bán sức lao động?", opts: { A: "Sự khác biệt về trí thông minh bẩm sinh của các cá nhân", B: "Sở hữu tư nhân về tư liệu sản xuất", C: "Sự phân bố ngẫu nhiên về địa hình cư trú nông thôn và thành thị", D: "Sự khác biệt về chủng tộc và giới tính" }, ans: "B", exp: "Marx coi sở hữu tư nhân về tư liệu sản xuất ra cơ cấu phân tầng xã hội, giới chủ là giới sở hữu tư liệu sản xuất và giới lao động là những người không có tư liệu sản xuất phải bán sức lao động." },
+        { q: "33. Về mặt thực tiễn, Karl Marx đề xuất giải pháp nào đối với chế độ sở hữu tư nhân để xây dựng một xã hội công bằng, văn minh?", opts: { A: "Giữ nguyên chế độ sở hữu tư nhân nhưng tăng mức thuế thu nhập của giới chủ", B: "Xóa bỏ và thay thế chế độ sở hữu tư nhân bằng sở hữu tập thể và toàn xã hội", C: "Chia nhỏ tư liệu sản xuất tư nhân cho từng cá nhân tự quản lý độc lập", D: "Nhờ cậy sự điều hòa tự nguyện từ lòng tốt và sự từ thiện của giới chủ sở hữu tư bản" }, ans: "B", exp: "Về thực tiễn, cần xóa bỏ và thay thế chế độ sở hữu tư nhân bằng sở hữu tập thể và toàn xã hội để xây dựng xã hội công bằng, văn minh." },
+        { q: "34. Về mặt lý luận, xã hội học theo quan điểm của Marx cần giải thích cơ cấu xã hội nhằm mục đích gì?", opts: { A: "Chứng minh rằng cơ cấu xã hội hiện có là hoàn hảo không cần thay đổi", B: "Chỉ ra ai là người có lợi, ai là người bị thiệt từ cách tổ chức xã hội và cơ cấu xã hội hiện có", C: "Thuyết phục người lao động chấp nhận sự phân công lao động hiện tại", D: "Nghiên cứu tâm lý hành vi tiêu dùng của các giai cấp xã hội" }, ans: "B", exp: "Về lý luận, xã hội học cần giải thích cơ cấu xã hội để chỉ ra ai là người có lợi, ai là người bị thiệt từ cách tổ chức xã hội và cơ cấu xã hội hiện có." },
+        { q: "35. Theo đặc điểm thứ tư của Marx, ý thức xã hội (hệ tư tưởng, văn hóa...) xuất hiện trên nền tảng nào?", opts: { A: "Nền tảng tâm linh tôn giáo siêu nhiên", B: "Nền tảng vật chất là sản xuất (tức là sự phân công lao động xã hội)", C: "Sự sáng tạo ngẫu hứng của các nhà văn, nhà thơ lớn", D: "Các quy định pháp luật hành chính của nhà nước" }, ans: "B", exp: "Đặc điểm của mọi xã hội, ý thức xã hội (hệ tư tưởng, văn hóa...) xuất hiện trên nền tảng vật chất là sản xuất (tức là sự phân công lao động xã hội)." },
+        { q: "36. Học thuyết nào của Marx đã mở ra bước ngoặt có tính cách mạng trong nhận thức của con người về cách phân chia các giai đoạn lịch sử?", opts: { A: "Học thuyết về các nhóm xã hội nhỏ", B: "Thuyết về hình thái kinh tế - xã hội", C: "Thuyết hành động xã hội duy cảm", D: "Thuyết tương tác biểu trưng vi mô" }, ans: "B", exp: "Thông qua thuyết về hình thái kinh tế xã hội của ông, ông đã chứng minh rằng xã hội luôn luôn vận động và phát triển trên cơ sở quy luật khách quan và trải qua các hình thái kinh tế xã hội khác nhau." },
+        { q: "37. Theo thuyết hình thái kinh tế - xã hội của Marx, lịch sử loài người trải qua năm phương thức sản xuất ứng với năm chế độ lịch sử nào?", opts: { A: "Nguyên thủy, dã man, phong kiến, tư bản, công nghiệp", B: "Nguyên thủy, nô lệ, phong kiến, tư bản và cộng sản chủ nghĩa", C: "Chiếm hữu nô lệ, trung cổ, cận đại, hiện đại, hậu hiện đại", D: "Nông nghiệp, công nghiệp, dịch vụ, tri thức, thông tin" }, ans: "B", exp: "Lịch sử xã hội trải qua năm phương thức sản xuất ứng với năm hình thái kinh tế xã hội và năm chế độ lịch sử: nguyên thủy, nô lệ, phong kiến, tư bản và cộng sản chủ nghĩa." },
+        { q: "38. Quan niệm duy vật biện chứng về lịch sử của Karl Marx ra đời đã thay thế trực tiếp cho quan niệm sai lầm nào về lịch sử xã hội trước đó?", opts: { A: "Quan niệm thực chứng luận của xã hội học tự nhiên", B: "Quan niệm duy tâm về lịch sử xã hội", C: "Quan niệm tiến hóa sinh học của Darwin", D: "Quan niệm cấu trúc - chức năng hiện đại" }, ans: "B", exp: "Ông đã đưa ra một quan niệm mới về xã hội, đó là quan niệm duy vật biện chứng về lịch sử (ông đã thay thế quan niệm duy tâm về lịch sử xã hội)." },
+        { q: "39. Theo quan niệm duy vật biện chứng về lịch sử của Marx, sự biến đổi xã hội và phát triển lịch sử bắt nguồn từ đâu?", opts: { A: "Từ các lý thuyết khoa học của các nhà triết học lỗi lạc", B: "Từ hệ thống sản xuất, cơ cấu kinh tế của xã hội", C: "Từ các biến động thời tiết và khí hậu trên trái đất", D: "Từ sự hoàn thiện đạo đức cá nhân của con người" }, ans: "B", exp: "Ông chỉ ra rằng sự biến đổi xã hội và sự phát triển lịch sử bắt nguồn từ hệ thống sản xuất, cơ cấu kinh tế của xã hội." },
+        { q: "40. Theo lý thuyết tha hóa của Marx, cái làm loài người khác biệt với các loài sinh vật khác là khả năng nào?", opts: { A: "Khả năng thích nghi thụ động với môi trường tự nhiên", B: "Khả năng kiểm soát tự nhiên bằng hoạt động sáng tạo", C: "Khả năng sinh sản duy trì nòi giống liên tục", D: "Khả năng tiêu thụ thức ăn chín thông qua nấu nướng" }, ans: "B", exp: "Nền tảng của lý thuyết là nhận định về cái làm loài người khác biệt với các loài khác là khả năng kiểm soát tự nhiên bằng hoạt động sáng tạo." },
+        { q: "41. Theo Marx, tha hóa lao động tạo ra hệ quả xấu nhất của nó trong điều kiện xã hội nào?", opts: { A: "Xã hội chiếm hữu nô lệ cổ đại", B: "Xã hội phong kiến nông nghiệp châu Âu", C: "Chủ nghĩa tư bản công nghiệp", D: "Xã hội cộng sản nguyên thủy tự cung tự cấp" }, ans: "C", exp: "Với chủ nghĩa tư bản công nghiệp, tha hóa lao động tạo ra hệ quả xấu nhất của nó vì ở đây, người công nhân bị buộc vào cỗ máy để làm công việc vô nghĩa, một phần của quá trình rộng lớn hơn." },
+        { q: "42. Trong chủ nghĩa tư bản công nghiệp, người công nhân bị buộc phải bán yếu tố nào của mình như một sản phẩm mua bán được cho giới chủ?", opts: { A: "Tài sản gia đình của họ", B: "Khả năng làm việc (sức lao động của họ)", C: "Quyền công dân hợp pháp của họ", D: "Niềm tin tôn giáo cá nhân của họ" }, ans: "B", exp: "Họ bị buộc phải bán khả năng làm việc (sức lao động của họ) cho người chủ như một sản phẩm mua bán được." },
+        { q: "43. Theo lý thuyết tha hóa, mối quan hệ giữa lao động của người công nhân và sự bóc lột của nhà tư bản diễn ra thế nào?", opts: { A: "Lao động của người công nhân càng nhẹ nhàng thì họ càng bị bóc lột nhiều hơn", B: "Lao động của người công nhân càng nặng nhọc hơn thì họ càng bị nhà tư bản bóc lột nhiều hơn", C: "Lao động của người công nhân không có bất kỳ mối liên hệ nào với mức độ bóc lột", D: "Giới chủ tư bản hoàn toàn không bóc lột sức lao động của công nhân" }, ans: "B", exp: "Sản phẩm của lao động này bị nhà tư bản sở hữu, bán ra và vì thế, lao động của người công nhân càng nặng nhọc hơn thì họ càng bị nhà tư bản bóc lột nhiều hơn." },
+        { q: "44. Theo học thuyết của Karl Marx, 'hình thái kinh tế - xã hội' dùng để chỉ điều gì?", opts: { A: "Một vương quốc có sự ổn định tuyệt đối về mặt chính trị quân sự", B: "Xã hội ở một giai đoạn phát triển cụ thể nhất định", C: "Một tập hợp các tôn giáo có cùng chung nguồn gốc lịch sử", D: "Hệ thống các máy móc cơ khí được sử dụng trong công nghiệp dệt" }, ans: "B", exp: "Hình thái kinh tế - xã hội chỉ xã hội ở một giai đoạn phát triển cụ thể nhất định." },
+        { q: "45. Karl Marx xác định hai yếu tố nào cấu thành hai mặt của một phương thức sản xuất?", opts: { A: "Cơ sở hạ tầng và kiến trúc thượng tầng", B: "Lực lượng sản xuất và quan hệ sản xuất", C: "Giai cấp tư sản và giai cấp vô sản", D: "Ý thức xã hội và tồn tại xã hội" }, ans: "B", exp: "Mối quan hệ giữa lực lượng sản xuất và quan hệ sản xuất cấu thành hai mặt của một phương thức sản xuất." },
+        { q: "46. Theo học thuyết hình thái kinh tế - xã hội, 'cơ sở hạ tầng' được định nghĩa là gì?", opts: { A: "Hệ thống đường giao thông và cầu cống phục vụ vận chuyển hàng hóa công nghiệp", B: "Toàn bộ quan hệ sản xuất hợp thành các cấu trúc tinh tế của một hình thái kinh tế - xã hội, đóng vai trò là nền tảng đời sống", C: "Hệ thống luật pháp và tòa án hành chính của nhà nước tư bản", D: "Hệ thống các nhà thờ và giáo lý tôn giáo của xã hội trung cổ" }, ans: "B", exp: "Cơ sở hạ tầng là toàn bộ quan hệ sản xuất hợp thành các cấu trúc tinh tế của một hình thái kinh tế - xã hội. Cơ sở hạ tầng có vai trò là nền tảng của đời sống con người." },
+        { q: "47. Theo học thuyết hình thái kinh tế - xã hội, 'kiến trúc thượng tầng' được định nghĩa là gì?", opts: { A: "Các tòa nhà cao tầng và các công trình xây dựng kiên cố ở đô thị công nghiệp", B: "Toàn bộ hệ tư tưởng phản ánh những mặt cơ bản của hình thái kinh tế - xã hội", C: "Các công cụ lao động như máy móc dệt và nguyên liệu thô", D: "Lực lượng lao động cơ bắp của giai cấp công nhân vô sản" }, ans: "B", exp: "Kiến trúc thượng tầng là toàn bộ hệ tư tưởng phản ánh những mặt cơ bản của hình thái kinh tế - xã hội." },
+        { q: "48. Karl Marx coi xã hội tư bản giống như một thực thể nào dưới góc nhìn phương pháp luận?", opts: { A: "Một cỗ máy cơ học vô tri vô giác", B: "Cơ thể sống", C: "Một tác phẩm nghệ thuật tinh vi", D: "Một lâu đài phong kiến tĩnh lặng" }, ans: "B", exp: "Marx coi xã hội tư bản là cơ thể sống." },
+        { q: "49. Trong thuyết xung đột của Karl Marx, ông chia xã hội thời đó thành năm giai cấp đối lập nhau theo hình tháp, trong đó giai cấp nào nằm ở tầng đáy và giai cấp nào ở đỉnh tháp?", opts: { A: "Tầng đáy là quý tộc, đỉnh tháp là tăng lữ nhà thờ", B: "Tầng đáy là giai cấp vô sản/giai cấp công nhân, đỉnh tháp là giai cấp tư sản", C: "Tầng đáy là quân đội, đỉnh tháp là tầng lớp tăng lữ", D: "Tầng đáy là giới chủ, đỉnh tháp là giới lao động tự do" }, ans: "B", exp: "Ông chia xã hội thời đó thành năm giai cấp đối lập nhau theo hình thức kim tự tháp: (1) tầng đáy là giai cấp vô sản/giai cấp công nhân; (2) tiếp theo là giai cấp quân đội; (3) thứ ba là tầng lớp tăng lữ, nhà thờ; (4) thứ tư là tầng lớp quý tộc và (5) trên đỉnh tháp là giai cấp tư sản." },
+        { q: "50. Đối với Karl Marx, xung đột xã hội gắn liền với hoạt động căn bản nào?", opts: { A: "Cuộc cạnh tranh thương mại giữa các tập đoàn đa quốc gia", B: "Cuộc đấu tranh giai cấp", C: "Sự xung đột giữa các thế hệ thành viên trong gia đình nông thôn", D: "Sự mâu thuẫn giữa các nhà khoa học về lý thuyết vật lý học" }, ans: "B", exp: "Đối với Karl Marx, xung đột gắn với cuộc đấu tranh giai cấp." }
     ];
 
-    let isInstantFeedback = true;
-    let totalScore = 0;
-    let timerInterval;
+    let userAnswers = {};
+    let wrongQuestions = [];
 
-    // Bật/Tắt khóa ô nhập thời gian
-    document.getElementById('enable-timer').addEventListener('change', e => document.getElementById('time-limit').disabled = !e.target.checked);
-
-    // Xử lý đếm ngược thời gian
-    function startTimer(duration) {
-        let timer = duration, minutes, seconds;
-        const display = document.getElementById('timer-display');
-        display.style.color = '#ff5252';
-        
-        if (timerInterval) clearInterval(timerInterval);
-        
-        timerInterval = setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                clearInterval(timerInterval);
-                alert("Hết giờ làm bài! Hệ thống tự động nộp bài.");
-                submitQuiz();
-            }
-        }, 1000);
-    }
-
-    // Bắt đầu bài làm
     function startQuiz() {
-        isInstantFeedback = document.getElementById('instant-feedback').checked;
-        const enableTimer = document.getElementById('enable-timer').checked;
-        const timeVal = parseInt(document.getElementById('time-limit').value) || 30;
-
-        document.getElementById('settings-summary').innerHTML = `
-            <strong>Thiết lập:</strong> ${enableTimer ? 'Thời gian: ' + timeVal + ' phút' : 'Không giới hạn thời gian'} | 
-            <strong>Đáp án:</strong> ${isInstantFeedback ? 'Hiện ngay' : 'Hiện sau khi nộp bài'}
-        `;
-
         document.getElementById('setup-screen').style.display = 'none';
         document.getElementById('quiz-screen').style.display = 'block';
-        
-        renderQuestions();
-        
-        // Kích hoạt đồng hồ nếu bật
-        if (enableTimer && timeVal > 0) {
-            startTimer(timeVal * 60);
-        } else {
-            document.getElementById('timer-display').textContent = "Không giới hạn";
-            document.getElementById('timer-display').style.color = "#00e676";
-        }
+        renderQuestions(questionsData);
     }
 
-    // Tạo HTML cho toàn bộ danh sách câu hỏi
-    function renderQuestions() {
+    function renderQuestions(data, isRedo = false) {
         const container = document.getElementById('questions-container');
-        container.innerHTML = "";
-        questionsData.forEach((q, index) => {
-            container.innerHTML += `
-                <div class="question-card" id="q-${index}">
-                    <div class="question-title">${q.q}</div>
-                    <div class="options">
-                        ${Object.keys(q.opts).map(key => `
-                            <label class="option-label" onclick="handleOptionClick(${index}, '${key}', this)">
-                                <input type="radio" name="q${index}" value="${key}" style="display:none">
-                                <span><b>${key}.</b> ${q.opts[key]}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                    <div class="explanation" id="exp-${index}"><b>Giải thích:</b> ${q.exp}</div>
-                </div>
-            `;
-        });
-    }
-
-    // Xử lý khi click vào đáp án
-    window.handleOptionClick = function(qIndex, selectedAns, labelElement) {
-        const qCard = document.getElementById(`q-${qIndex}`);
-        if (qCard.classList.contains('answered')) return; // Nếu đã khóa thì không cho bấm
-
-        // Đảm bảo nút radio được chọn
-        labelElement.querySelector('input').checked = true;
-
-        const allLabels = qCard.querySelectorAll('.option-label');
-        
-        if (isInstantFeedback) {
-            // Chế độ báo đáp án ngay
-            qCard.classList.add('answered');
-            const correctAns = questionsData[qIndex].ans;
+        container.innerHTML = '';
+        data.forEach((q, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.innerHTML = `<p><strong>${q.q}</strong></p><div class="options"></div><div class="explanation"><strong>Giải thích:</strong> ${q.exp}</div>`;
             
-            if (selectedAns === correctAns) {
-                labelElement.classList.add('correct');
-            } else {
-                labelElement.classList.add('wrong');
-                allLabels.forEach(lbl => {
-                    if (lbl.querySelector('input').value === correctAns) lbl.classList.add('correct');
-                });
-            }
-            document.getElementById(`exp-${qIndex}`).style.display = 'block';
-            allLabels.forEach(l => l.classList.add('disabled'));
-        } else {
-            // Chế độ thi bình thường (cho phép chọn lại thoải mái)
-            allLabels.forEach(l => l.classList.remove('selected'));
-            labelElement.classList.add('selected');
-        }
+            Object.keys(q.opts).forEach(key => {
+                const label = document.createElement('label');
+                label.className = 'option-label';
+                label.innerHTML = `<input type="radio" name="q${index}" value="${key}" onclick="selectOption(this, '${key}', '${q.ans}', ${index}, ${isRedo})"> ${key}. ${q.opts[key]}`;
+                card.querySelector('.options').appendChild(label);
+            });
+            container.appendChild(card);
+        });
     }
 
-    // Nút nộp bài xử lý mọi thao tác chấm điểm
-    window.submitQuiz = function() {
-        if (timerInterval) clearInterval(timerInterval); // Dừng thời gian
-        totalScore = 0;
+    function selectOption(el, selected, correct, index, isRedo) {
+        if (el.closest('.question-card').querySelector('.disabled')) return;
+        const labels = el.closest('.options').querySelectorAll('.option-label');
+        labels.forEach(l => l.classList.add('disabled'));
+        el.parentElement.classList.add('selected');
+        
+        if (document.getElementById('instant-feedback').checked) {
+            labels.forEach(l => {
+                const val = l.querySelector('input').value;
+                if (val === correct) l.classList.add('correct');
+                else if (val === selected && selected !== correct) l.classList.add('wrong');
+            });
+            el.closest('.question-card').querySelector('.explanation').style.display = 'block';
+        }
+        userAnswers[index] = { selected, correct };
+    }
 
+    function submitQuiz() {
+        wrongQuestions = [];
         questionsData.forEach((q, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            const qCard = document.getElementById(`q-${index}`);
-            const allLabels = qCard.querySelectorAll('.option-label');
-            
-            // Khóa câu hỏi và hiện giải thích
-            qCard.classList.add('answered');
-            document.getElementById(`exp-${index}`).style.display = 'block';
-            allLabels.forEach(l => l.classList.add('disabled'));
-
-            if (selected) {
-                if (selected.value === q.ans) {
-                    selected.parentElement.classList.add('correct');
-                    totalScore++; // Cộng điểm nếu đúng
-                } else {
-                    selected.parentElement.classList.add('wrong');
-                    // Bôi xanh đáp án đáng lẽ đúng
-                    allLabels.forEach(l => { if (l.querySelector('input').value === q.ans) l.classList.add('correct'); });
-                }
-            } else {
-                // Nếu chưa chọn thì cũng bôi xanh đáp án đúng
-                allLabels.forEach(l => { if (l.querySelector('input').value === q.ans) l.classList.add('correct'); });
+            if (!userAnswers[index] || userAnswers[index].selected !== q.ans) {
+                wrongQuestions.push(q);
             }
         });
-        
-        showFinalResult();
-        document.getElementById('submit-btn').style.display = 'none'; // Ẩn nút nộp bài
+        document.getElementById('submit-btn').style.display = 'none';
+        const resultBox = document.getElementById('result-box');
+        resultBox.style.display = 'block';
+        document.getElementById('score-details').innerText = `Bạn đã trả lời đúng ${questionsData.length - wrongQuestions.length}/${questionsData.length} câu.`;
+        if (wrongQuestions.length === 0) document.getElementById('redo-btn').style.display = 'none';
     }
 
-    // Hiển thị khung kết quả
-    function showFinalResult() {
-        document.getElementById('result-box').style.display = 'block';
-        document.getElementById('score-details').innerText = `Bạn đã trả lời đúng ${totalScore} / ${questionsData.length} câu.`;
-        
-        // Nếu làm chưa đúng 100% thì hiện nút làm lại câu sai
-        if (totalScore < questionsData.length) {
-            document.getElementById('redo-btn').style.display = 'inline-block';
-        } else {
-            document.getElementById('redo-btn').style.display = 'none';
-        }
-        
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-
-    // Chức năng "Làm lại những câu sai"
-    window.redoWrongQuestions = function() {
-        document.getElementById('result-box').style.display = 'none'; // Ẩn kết quả
-        document.getElementById('submit-btn').style.display = 'block'; // Hiện lại nút nộp bài
-
-        questionsData.forEach((q, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            const isCorrect = selected && selected.value === q.ans;
-
-            // Xóa khóa và reset nếu câu đó bị sai hoặc bỏ trống
-            if (!isCorrect) {
-                const qCard = document.getElementById(`q-${index}`);
-                qCard.classList.remove('answered');
-                
-                const allLabels = qCard.querySelectorAll('.option-label');
-                allLabels.forEach(l => {
-                    l.classList.remove('disabled', 'correct', 'wrong', 'selected');
-                    l.querySelector('input').checked = false;
-                });
-                
-                document.getElementById(`exp-${index}`).style.display = 'none';
-            }
-        });
-        
-        // Cuộn ngược lên đầu để làm lại
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    function redoWrongQuestions() {
+        document.getElementById('result-box').style.display = 'none';
+        document.getElementById('submit-btn').style.display = 'block';
+        userAnswers = {};
+        renderQuestions(wrongQuestions, true);
     }
 </script>
 </body>
