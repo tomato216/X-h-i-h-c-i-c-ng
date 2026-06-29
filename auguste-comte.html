@@ -15,7 +15,6 @@
 
         #setup-screen { background-color: #121216; border: 2px solid #6f42c1; border-radius: 16px; padding: 40px; text-align: center; margin-top: 10vh; box-shadow: 0 8px 32px rgba(111, 66, 193, 0.2); }
         #setup-screen h1 { color: #b388ff; margin-bottom: 10px; }
-        #setup-screen p { color: #b3b3b8; margin-bottom: 30px; }
         .setting-group { display: flex; align-items: center; justify-content: space-between; background: #1a1a24; padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #3a2366; text-align: left; }
         input[type="number"] { width: 70px; padding: 8px; background: #0a0a0c; color: white; border: 1px solid #6f42c1; border-radius: 6px; text-align: center; }
         input[type="checkbox"] { width: 20px; height: 20px; accent-color: #6f42c1; cursor: pointer; }
@@ -24,9 +23,7 @@
         #quiz-screen { display: none; padding-bottom: 50px; }
         .quiz-header { position: sticky; top: 0; background-color: rgba(10, 10, 12, 0.95); padding: 15px 0; border-bottom: 1px solid #3a2366; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
         .timer { font-size: 1.2rem; font-weight: 700; color: #ff5252; }
-        
         .btn-nav { display: inline-block; background: #3a2366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; margin: 10px 0; font-weight: 500; }
-        .settings-info { background: #1a1a24; padding: 10px 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; border: 1px solid #3a2366; color: #b3b3b8; }
         
         .question-card { background-color: #121216; border: 1px solid #3a2366; border-radius: 12px; padding: 25px; margin-top: 25px; }
         .options { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
@@ -34,158 +31,4 @@
         .option-label.selected { border-color: #b388ff; background: rgba(111, 66, 193, 0.2); }
         .option-label.correct { border-color: #00e676; background: rgba(0, 230, 118, 0.2); }
         .option-label.wrong { border-color: #ff5252; background: rgba(255, 82, 82, 0.2); }
-        .option-label.disabled { cursor: default; }
-        .explanation { margin-top: 20px; padding: 15px; background: rgba(111, 66, 193, 0.1); border-left: 4px solid #b388ff; border-radius: 4px; font-size: 0.95rem; display: none; }
-        .btn-submit { display: block; width: 100%; max-width: 300px; margin: 40px auto 0; background-color: #00e676; color: #000; font-weight: 700; padding: 15px; border: none; border-radius: 8px; cursor: pointer; }
-        #result-box { text-align: center; padding: 30px; margin-top: 30px; background: #121216; border: 2px solid #00e676; border-radius: 12px; display: none; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div id="setup-screen">
-        <h1>Bộ đề 50 câu: Auguste Comte</h1>
-        <div class="setting-group">
-            <span>Tính thời gian làm bài</span>
-            <div><input type="checkbox" id="enable-timer"> <input type="number" id="time-limit" value="30" disabled> phút</div>
-        </div>
-        <div class="setting-group">
-            <span>Hiển thị đáp án ngay sau khi chọn</span>
-            <input type="checkbox" id="instant-feedback" checked>
-        </div>
-        <button class="btn-start" onclick="startQuiz()">VÀO LÀM BÀI</button>
-    </div>
-
-    <div id="quiz-screen">
-        <div class="quiz-header">
-            <h2>Auguste Comte</h2>
-            <div class="timer" id="timer-display"></div>
-        </div>
-        
-        <a href="chuong-2.html" class="btn-nav">← Quay lại Menu</a>
-        <div id="settings-summary" class="settings-info"></div>
-        
-        <div id="questions-container"></div>
-        
-        <button id="submit-btn" class="btn-submit" onclick="submitQuiz()">NỘP BÀI</button>
-        <a href="chuong-2.html" class="btn-nav" style="display: block; text-align: center; margin-top: 20px;">← Quay lại Menu</a>
-        
-        <div id="result-box">
-            <h2>Hoàn thành!</h2>
-            <p id="score-details"></p>
-        </div>
-    </div>
-</div>
-
-<script>
-    const questionsData = [
-        { q: "1. Auguste Comte sống trong giai đoạn nào?", opts: { A: "1760 – 1825", B: "1798 – 1857", C: "1818 – 1883", D: "1858 – 1917" }, ans: "B", exp: "Auguste Comte sinh năm 1798 và mất năm 1857." },
-        // ... giữ nguyên dữ liệu questionsData như cũ ...
-        { q: "50. Ý tưởng về dòng lý thuyết cấu trúc - chức năng sau này trong xã hội học được gợi mở trực tiếp từ hướng nghiên cứu nào của Auguste Comte?", opts: { A: "Động học xã hội", B: "Tĩnh học xã hội", C: "Thực nghiệm xã hội", D: "Phân tích lịch sử" }, ans: "B", exp: "Ý tưởng về lý thuyết cấu trúc - chức năng đã được gợi mở từ hướng nghiên cứu tĩnh học xã hội của Auguste Comte, tìm hiểu các quy luật để duy trì sự ổn định, hài hòa của cấu trúc xã hội." }
-    ];
-
-    let isInstantFeedback = true;
-    let totalScore = 0;
-
-    document.getElementById('enable-timer').addEventListener('change', e => document.getElementById('time-limit').disabled = !e.target.checked);
-
-    function startQuiz() {
-        isInstantFeedback = document.getElementById('instant-feedback').checked;
-        const enableTimer = document.getElementById('enable-timer').checked;
-        const timeVal = document.getElementById('time-limit').value;
-
-        // Hiển thị thông tin thiết lập
-        document.getElementById('settings-summary').innerHTML = `
-            <strong>Thiết lập:</strong> ${enableTimer ? 'Thời gian: ' + timeVal + ' phút' : 'Không giới hạn thời gian'} | 
-            <strong>Đáp án:</strong> ${isInstantFeedback ? 'Hiện ngay' : 'Hiện sau khi nộp bài'}
-        `;
-
-        document.getElementById('setup-screen').style.display = 'none';
-        document.getElementById('quiz-screen').style.display = 'block';
-        renderQuestions();
-        if(isInstantFeedback) document.getElementById('submit-btn').style.display = 'none';
-    }
-
-    function renderQuestions() {
-        const container = document.getElementById('questions-container');
-        questionsData.forEach((q, index) => {
-            container.innerHTML += `
-                <div class="question-card" id="q-${index}">
-                    <div class="question-title">${q.q}</div>
-                    <div class="options">
-                        ${Object.keys(q.opts).map(key => `
-                            <label class="option-label" onclick="handleOptionClick(${index}, '${key}', this)">
-                                <input type="radio" name="q${index}" value="${key}" style="display:none">
-                                <span><b>${key}.</b> ${q.opts[key]}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                    <div class="explanation" id="exp-${index}"><b>Giải thích:</b> ${q.exp}</div>
-                </div>
-            `;
-        });
-    }
-
-    window.handleOptionClick = function(qIndex, selectedAns, labelElement) {
-        const qCard = document.getElementById(`q-${qIndex}`);
-        if (qCard.classList.contains('answered')) return;
-
-        const allLabels = qCard.querySelectorAll('.option-label');
-        
-        if (isInstantFeedback) {
-            qCard.classList.add('answered');
-            const correctAns = questionsData[qIndex].ans;
-            
-            if(selectedAns === correctAns) {
-                labelElement.classList.add('correct');
-                totalScore++;
-            } else {
-                labelElement.classList.add('wrong');
-                allLabels.forEach(lbl => {
-                    if(lbl.querySelector('input').value === correctAns) lbl.classList.add('correct');
-                });
-            }
-            document.getElementById(`exp-${qIndex}`).style.display = 'block';
-            allLabels.forEach(l => l.classList.add('disabled'));
-            
-            if(document.querySelectorAll('.question-card.answered').length === questionsData.length) showFinalResult();
-        } else {
-            allLabels.forEach(l => l.classList.remove('selected'));
-            labelElement.classList.add('selected');
-        }
-    }
-
-    function submitQuiz() {
-        questionsData.forEach((q, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            const qCard = document.getElementById(`q-${index}`);
-            const allLabels = qCard.querySelectorAll('.option-label');
-            
-            qCard.classList.add('answered');
-            document.getElementById(`exp-${index}`).style.display = 'block';
-            allLabels.forEach(l => l.classList.add('disabled'));
-
-            if(selected) {
-                if(selected.value === q.ans) {
-                    selected.parentElement.classList.add('correct');
-                    totalScore++;
-                } else {
-                    selected.parentElement.classList.add('wrong');
-                    allLabels.forEach(l => { if(l.querySelector('input').value === q.ans) l.classList.add('correct'); });
-                }
-            } else {
-                allLabels.forEach(l => { if(l.querySelector('input').value === q.ans) l.classList.add('correct'); });
-            }
-        });
-        showFinalResult();
-        document.getElementById('submit-btn').style.display = 'none';
-    }
-
-    function showFinalResult() {
-        document.getElementById('result-box').style.display = 'block';
-        document.getElementById('score-details').innerText = `Bạn trả lời đúng ${totalScore} / ${questionsData.length} câu.`;
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-</script>
-</body>
-</html>
+        .explanation { margin-top: 20px; padding: 15px; background: rgba(111,
