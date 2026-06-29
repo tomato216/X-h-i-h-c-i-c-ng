@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bộ đề 1. Auguste Comte</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Bộ đề 50 câu: Auguste Comte - Xã Hội Học Đại Cương</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -13,22 +11,123 @@
         body { font-family: 'Inter', sans-serif; background-color: #0a0a0c; color: #ffffff; line-height: 1.6; padding: 20px; }
         .container { max-width: 800px; margin: 0 auto; }
 
-        #setup-screen { background-color: #121216; border: 2px solid #6f42c1; border-radius: 16px; padding: 40px; text-align: center; margin-top: 10vh; box-shadow: 0 8px 32px rgba(111, 66, 193, 0.2); }
-        #setup-screen h1 { color: #b388ff; margin-bottom: 10px; }
-        .setting-group { display: flex; align-items: center; justify-content: space-between; background: #1a1a24; padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #3a2366; text-align: left; }
+        #setup-screen { background-color: #121216; border: 2px solid #6f42c1; border-radius: 16px; padding: 40px; text-align: center; margin-top: 10vh; }
+        .setting-group { display: flex; align-items: center; justify-content: space-between; background: #1a1a24; padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #3a2366; }
         input[type="number"] { width: 70px; padding: 8px; background: #0a0a0c; color: white; border: 1px solid #6f42c1; border-radius: 6px; text-align: center; }
-        input[type="checkbox"] { width: 20px; height: 20px; accent-color: #6f42c1; cursor: pointer; }
-        .btn-start { display: inline-block; width: 100%; background-color: #6f42c1; color: white; font-size: 1.2rem; font-weight: 600; padding: 15px; border: none; border-radius: 8px; margin-top: 20px; cursor: pointer; }
+        .btn-start { display: inline-block; width: 100%; background-color: #6f42c1; color: white; font-weight: 600; padding: 15px; border: none; border-radius: 8px; cursor: pointer; }
         
-        #quiz-screen { display: none; padding-bottom: 50px; }
-        .quiz-header { position: sticky; top: 0; background-color: rgba(10, 10, 12, 0.95); padding: 15px 0; border-bottom: 1px solid #3a2366; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+        #quiz-screen { display: none; }
+        .quiz-header { position: sticky; top: 0; background-color: #0a0a0c; padding: 15px 0; border-bottom: 1px solid #3a2366; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
         .timer { font-size: 1.2rem; font-weight: 700; color: #ff5252; }
-        .btn-nav { display: inline-block; background: #3a2366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; margin: 10px 0; font-weight: 500; }
-        
         .question-card { background-color: #121216; border: 1px solid #3a2366; border-radius: 12px; padding: 25px; margin-top: 25px; }
-        .options { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
-        .option-label { display: flex; align-items: center; gap: 15px; background: #1a1a24; padding: 15px; border-radius: 8px; border: 1px solid #2a2a36; cursor: pointer; transition: 0.2s; }
-        .option-label.selected { border-color: #b388ff; background: rgba(111, 66, 193, 0.2); }
+        .option-label { display: flex; align-items: center; gap: 15px; background: #1a1a24; padding: 15px; border-radius: 8px; margin-bottom: 10px; cursor: pointer; border: 1px solid #2a2a36; }
+        .option-label.selected { border-color: #b388ff; }
         .option-label.correct { border-color: #00e676; background: rgba(0, 230, 118, 0.2); }
         .option-label.wrong { border-color: #ff5252; background: rgba(255, 82, 82, 0.2); }
-        .explanation { margin-top: 20px; padding: 15px; background: rgba(111,
+        .explanation { margin-top: 15px; padding: 10px; background: rgba(111, 66, 193, 0.1); border-left: 4px solid #b388ff; display: none; }
+        .btn-submit { display: block; width: 100%; padding: 15px; background-color: #00e676; color: #000; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="setup-screen">
+        <h1>Bộ đề 50 câu: Auguste Comte</h1>
+        <div class="setting-group">
+            <span>Thời gian làm bài (phút)</span>
+            <input type="number" id="time-limit" value="30" min="1">
+        </div>
+        <button class="btn-start" onclick="startQuiz()">BẮT ĐẦU LÀM BÀI</button>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <h2>Auguste Comte</h2>
+            <div class="timer" id="timer-display">--:--</div>
+        </div>
+        <div id="questions-container"></div>
+        <button id="submit-btn" class="btn-submit" onclick="submitQuiz()">NỘP BÀI</button>
+        <div id="result-box" style="display:none; text-align:center; padding: 20px;"></div>
+    </div>
+</div>
+
+<script>
+    const questionsData = [ /* ... Dữ liệu của bạn giữ nguyên ... */ ];
+    let timeLeft = 0;
+    let timerInterval = null;
+
+    function startQuiz() {
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+        
+        timeLeft = document.getElementById('time-limit').value * 60;
+        startTimer();
+        renderQuestions();
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                submitQuiz();
+            } else {
+                timeLeft--;
+                let mins = Math.floor(timeLeft / 60);
+                let secs = timeLeft % 60;
+                document.getElementById('timer-display').innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+        }, 1000);
+    }
+
+    function renderQuestions() {
+        const container = document.getElementById('questions-container');
+        questionsData.forEach((q, index) => {
+            container.innerHTML += `
+                <div class="question-card" id="q-${index}">
+                    <p>${q.q}</p>
+                    <div class="options">
+                        ${Object.keys(q.opts).map(key => `
+                            <label class="option-label" onclick="selectOption(${index}, '${key}', this)">
+                                <input type="radio" name="q${index}" value="${key}" style="display:none">
+                                ${key}. ${q.opts[key]}
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="explanation" id="exp-${index}"><b>Giải thích:</b> ${q.exp}</div>
+                </div>
+            `;
+        });
+    }
+
+    function selectOption(qIndex, key, el) {
+        if (document.getElementById(`q-${qIndex}`).classList.contains('answered')) return;
+        el.parentElement.querySelectorAll('.option-label').forEach(l => l.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    function submitQuiz() {
+        clearInterval(timerInterval);
+        let score = 0;
+        questionsData.forEach((q, index) => {
+            const selected = document.querySelector(`input[name="q${index}"]:checked`);
+            const qCard = document.getElementById(`q-${index}`);
+            qCard.classList.add('answered');
+            document.getElementById(`exp-${index}`).style.display = 'block';
+            
+            const labels = qCard.querySelectorAll('.option-label');
+            labels.forEach(l => {
+                const val = l.querySelector('input').value;
+                if (val === q.ans) l.classList.add('correct');
+                else if (selected && selected.value === val) l.classList.add('wrong');
+            });
+            if (selected && selected.value === q.ans) score++;
+        });
+        
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('result-box').innerHTML = `<h2>Kết quả: ${score}/${questionsData.length} câu đúng</h2>`;
+        document.getElementById('result-box').style.display = 'block';
+        window.scrollTo(0,0);
+    }
+</script>
+</body>
+</html>
