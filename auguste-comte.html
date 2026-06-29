@@ -1,3 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ đề 50 câu: Auguste Comte - Xã Hội Học Đại Cương</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0c; color: #ffffff; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+
+        #setup-screen { background-color: #121216; border: 2px solid #6f42c1; border-radius: 16px; padding: 40px; text-align: center; margin-top: 10vh; box-shadow: 0 8px 32px rgba(111, 66, 193, 0.2); }
+        #setup-screen h1 { color: #b388ff; margin-bottom: 10px; }
+        #setup-screen p { color: #b3b3b8; margin-bottom: 30px; }
+        .setting-group { display: flex; align-items: center; justify-content: space-between; background: #1a1a24; padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #3a2366; text-align: left; }
+        input[type="number"] { width: 70px; padding: 8px; background: #0a0a0c; color: white; border: 1px solid #6f42c1; border-radius: 6px; text-align: center; }
+        input[type="checkbox"] { width: 20px; height: 20px; accent-color: #6f42c1; cursor: pointer; }
+        .btn-start { display: inline-block; width: 100%; background-color: #6f42c1; color: white; font-size: 1.2rem; font-weight: 600; padding: 15px; border: none; border-radius: 8px; margin-top: 20px; cursor: pointer; }
+        
+        #quiz-screen { display: none; padding-bottom: 50px; }
+        .quiz-header { position: sticky; top: 0; background-color: rgba(10, 10, 12, 0.95); padding: 15px 0; border-bottom: 1px solid #3a2366; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+        .timer { font-size: 1.2rem; font-weight: 700; color: #ff5252; }
+        
+        .btn-nav { display: inline-block; background: #3a2366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; margin: 10px 0; font-weight: 500; transition: 0.3s;}
+        .btn-nav:hover { background: #5a32a3; }
+        
+        .settings-info { background: #1a1a24; padding: 10px 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; border: 1px solid #3a2366; color: #b3b3b8; }
+        
+        .question-card { background-color: #121216; border: 1px solid #3a2366; border-radius: 12px; padding: 25px; margin-top: 25px; }
+        .options { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .option-label { display: flex; align-items: center; gap: 15px; background: #1a1a24; padding: 15px; border-radius: 8px; border: 1px solid #2a2a36; cursor: pointer; transition: 0.2s; }
+        .option-label.selected { border-color: #b388ff; background: rgba(111, 66, 193, 0.2); }
+        .option-label.correct { border-color: #00e676; background: rgba(0, 230, 118, 0.2); }
+        .option-label.wrong { border-color: #ff5252; background: rgba(255, 82, 82, 0.2); }
+        .option-label.disabled { cursor: default; }
+        .explanation { margin-top: 20px; padding: 15px; background: rgba(111, 66, 193, 0.1); border-left: 4px solid #b388ff; border-radius: 4px; font-size: 0.95rem; display: none; }
+        .btn-submit { display: block; width: 100%; max-width: 300px; margin: 40px auto 0; background-color: #00e676; color: #000; font-weight: 700; padding: 15px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s;}
+        .btn-submit:hover { background-color: #00c853; }
+        #result-box { text-align: center; padding: 30px; margin-top: 30px; background: #121216; border: 2px solid #00e676; border-radius: 12px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="setup-screen">
+        <h1>Bộ đề 50 câu: Auguste Comte</h1>
+        <div class="setting-group">
+            <span>Tính thời gian làm bài</span>
+            <div><input type="checkbox" id="enable-timer"> <input type="number" id="time-limit" value="30" disabled> phút</div>
+        </div>
+        <div class="setting-group">
+            <span>Hiển thị đáp án ngay sau khi chọn</span>
+            <input type="checkbox" id="instant-feedback" checked>
+        </div>
+        <button class="btn-start" onclick="startQuiz()">VÀO LÀM BÀI</button>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <h2>Auguste Comte</h2>
+            <div class="timer" id="timer-display"></div>
+        </div>
+        
+        <a href="chuong-2.html" class="btn-nav">← Quay lại Menu</a>
+        <div id="settings-summary" class="settings-info"></div>
+        
+        <div id="questions-container"></div>
+        
+        <button id="submit-btn" class="btn-submit" onclick="submitQuiz()">NỘP BÀI</button>
+        <a href="chuong-2.html" class="btn-nav" style="display: block; text-align: center; margin-top: 20px;">← Quay lại Menu</a>
+        
+        <div id="result-box">
+            <h2 style="color: #00e676; margin-bottom: 10px;">Hoàn thành!</h2>
+            <p id="score-details" style="font-size: 1.2rem; font-weight: bold;"></p>
+            <button id="redo-btn" class="btn-submit" style="background-color: #ff9800; margin-top: 20px;" onclick="redoWrongQuestions()">Làm lại những câu sai</button>
+        </div>
+    </div>
+</div>
+
 <script>
     const questionsData = [
         { q: "1. Auguste Comte sống trong giai đoạn nào?", opts: { A: "1760 – 1825", B: "1798 – 1857", C: "1818 – 1883", D: "1858 – 1917" }, ans: "B", exp: "Auguste Comte sinh năm 1798 và mất năm 1857." },
@@ -33,23 +116,70 @@
         { q: "31. Theo hướng động học xã hội của Comte, nhà xã hội học có thể áp dụng phương pháp so sánh theo chiều nào?", opts: { A: "Chiều không gian địa lý", B: "Chiều lịch sử (so sánh xã hội hiện tại với xã hội trong quá khứ)", C: "Chiều phân tầng giai cấp xã hội", D: "Chiều tâm lý học cá nhân" }, ans: "B", exp: "Theo hướng động học xã hội, nhà xã hội học có thể nghiên cứu theo chiều lịch sử." }
     ];
 
-    let wrongQuestionsIndices = [];
+    let userAnswers = {};
+    let wrongQuestions = [];
 
-    // Lưu ý: Đảm bảo trong hàm submitQuiz của bạn có đoạn ghi lại các câu sai như sau:
-    // wrongQuestionsIndices = []; 
-    // questionsData.forEach((item, index) => { 
-    //    if (userAnswers[index] !== item.ans) wrongQuestionsIndices.push(index); 
-    // });
+    function startQuiz() {
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+        renderQuestions(questionsData);
+    }
 
-    function redoWrongQuestions() {
+    function renderQuestions(data, isRedo = false) {
         const container = document.getElementById('questions-container');
         container.innerHTML = '';
+        data.forEach((q, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.innerHTML = `<p><strong>${q.q}</strong></p><div class="options"></div><div class="explanation"><strong>Giải thích:</strong> ${q.exp}</div>`;
+            
+            Object.keys(q.opts).forEach(key => {
+                const label = document.createElement('label');
+                label.className = 'option-label';
+                label.innerHTML = `<input type="radio" name="q${index}" value="${key}" onclick="selectOption(this, '${key}', '${q.ans}', ${index}, ${isRedo})"> ${key}. ${q.opts[key]}`;
+                card.querySelector('.options').appendChild(label);
+            });
+            container.appendChild(card);
+        });
+    }
+
+    function selectOption(el, selected, correct, index, isRedo) {
+        if (el.closest('.question-card').querySelector('.disabled')) return;
+        const labels = el.closest('.options').querySelectorAll('.option-label');
+        labels.forEach(l => l.classList.add('disabled'));
+        el.parentElement.classList.add('selected');
+        
+        if (document.getElementById('instant-feedback').checked) {
+            labels.forEach(l => {
+                const val = l.querySelector('input').value;
+                if (val === correct) l.classList.add('correct');
+                else if (val === selected && selected !== correct) l.classList.add('wrong');
+            });
+            el.closest('.question-card').querySelector('.explanation').style.display = 'block';
+        }
+        userAnswers[index] = { selected, correct };
+    }
+
+    function submitQuiz() {
+        wrongQuestions = [];
+        questionsData.forEach((q, index) => {
+            if (!userAnswers[index] || userAnswers[index].selected !== q.ans) {
+                wrongQuestions.push(q);
+            }
+        });
+        document.getElementById('submit-btn').style.display = 'none';
+        const resultBox = document.getElementById('result-box');
+        resultBox.style.display = 'block';
+        document.getElementById('score-details').innerText = `Bạn đã trả lời đúng ${questionsData.length - wrongQuestions.length}/${questionsData.length} câu.`;
+        if (wrongQuestions.length === 0) document.getElementById('redo-btn').style.display = 'none';
+    }
+
+    function redoWrongQuestions() {
         document.getElementById('result-box').style.display = 'none';
-        
-        // Lọc lại các câu sai
-        const redoData = wrongQuestionsIndices.map(index => questionsData[index]);
-        
-        // Render lại chỉ các câu sai (Sử dụng lại logic render sẵn có của bạn)
-        renderQuestions(redoData); 
+        document.getElementById('submit-btn').style.display = 'block';
+        userAnswers = {};
+        renderQuestions(wrongQuestions, true);
     }
 </script>
+</body>
+</html>
